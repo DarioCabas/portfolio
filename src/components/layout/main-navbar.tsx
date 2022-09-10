@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import {
   AppBar,
@@ -24,17 +24,20 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ListIcon from '@mui/icons-material/FormatListBulleted';
 import MenuIcon from '@mui/icons-material/Menu';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faGraduationCap);
-
 import ColorModeContext from 'src/components/color-mode-context';
 import CustomButton from 'src/components/common/custom-button';
 
-const MainNavbar = ({ onSidebarOpen }) => {
+interface MainNavbarProps {
+    onSidebarOpen?: () => void;
+}
+
+const MainNavbar: FC<MainNavbarProps> = (props) => {
+    const { onSidebarOpen } = props;
     const theme = useTheme();
     const colorMode = React.useContext(ColorModeContext);
     const trigger = useScrollTrigger({
@@ -60,7 +63,7 @@ const MainNavbar = ({ onSidebarOpen }) => {
                         sx={{ display: { md: 'block', lg: 'none' } }}
                     >
                         <Button
-                            onClick={() => onSidebarOpen()}
+                            onClick={onSidebarOpen}
                             aria-label='Menu'
                             variant='outlined'
                             sx={{

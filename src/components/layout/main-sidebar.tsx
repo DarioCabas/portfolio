@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Avatar from '@mui/material/Avatar';
@@ -16,7 +16,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ListIcon from '@mui/icons-material/FormatListBulleted';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
@@ -25,14 +24,21 @@ library.add(faGraduationCap);
 
 import CustomButton from 'src/components/common/custom-button';
 
-const MainSidebar = ({ open, onClose }) => {
+interface MainSidebarProps {
+  onClose?: () => void;
+  open?: boolean;
+}
+
+
+const MainSidebar: FC<MainSidebarProps> = (props) => {
+  const { onClose, open } = props;
   const theme = useTheme();
 
   return (
     <React.Fragment>
       <Drawer
         anchor='left'
-        onClose={() => onClose()}
+        onClose={onClose}
         open={open}
         variant='temporary'
         sx={{
