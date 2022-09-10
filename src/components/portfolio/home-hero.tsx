@@ -208,8 +208,8 @@ export const HomeHero: FC = ({ onSidebarOpen }) => {
     );
 };
 
-Header.propTypes = {
+HomeHero.propTypes = {
     onSidebarOpen: PropTypes.func,
 };
 
-export default Header;
+export default HomeHero;
