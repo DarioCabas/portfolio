@@ -96,12 +96,14 @@ const Technologies:FC = () => {
                                         <Box marginBottom={1}>
                                             <Box
                                                 component={Avatar}
-                                                width={60}
-                                                height={60}
-                                                marginBottom={2}
-                                                backgroundColor='transparent'
                                                 variant='rounded'
-                                                borderRadius={2}
+                                                sx={{
+                                                    backgroundColor: 'transparent',
+                                                    width: 60,
+                                                    height: 60,
+                                                    borderRadius: 2,
+                                                    marginBottom: 2
+                                                }}
                                             >
                                                 <Image src={item.icon} height={50} width={50} />
                                             </Box>
