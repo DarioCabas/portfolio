@@ -1,182 +1,141 @@
-import type { FC } from 'react';
+import React from 'react';
 import {
-    Box,
-    Container,
-    Divider,
-    Grid,
-    Link,
-    List,
-    ListItem,
-    ListItemAvatar,
-    ListItemText,
-    Typography
-} from '@mui/material';
-import { alpha } from '@mui/material/styles';
-import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
-import { Logo } from 'src/components/logo';
+  Box,
+  Divider,
+  Grid,
+  Hidden,
+  Link,
+  List,
+  ListItemButton,
+  ListItemText,
+  Typography
+} from '@mui/material'
+import { useTheme } from '@mui/material/styles';
 
-const sections = [
-    {
-        title: '',
-        links: [
+const Footer = () => {
+  const theme = useTheme();
 
-        ]
-    },
-    {
-        title: 'Placeholders',
-        links: [
-            {
-                title: 'Terms & Conditions',
-                href: '#'
-            },
-            {
-                title: 'License',
-                href: '#'
-            },
-            {
-                title: 'Contact',
-                href: '#contact'
-            }
-        ]
-    },
-    {
-        title: 'Social',
-        links: [
-            {
-                title: 'Instagram',
-                href: '#'
-            },
-            {
-                title: 'LinkedIn',
-                href: '#'
-            }
-        ]
-    }
-];
-
-export const Footer: FC = (props) => (
-    <Box
+  return (
+    <React.Fragment>
+      <Box
         sx={{
-            backgroundColor: 'background.footer',
-            borderTopColor: 'divider',
-            borderTopStyle: 'solid',
-            borderTopWidth: 1,
-            pb: 6,
-            pt: {
-                md: 12,
-                xs: 6
-            }
+          backgroundColor: theme.palette.background.default,
+          width: '100%',
+          left: '0',
+          bottom: '0',
+          position: 'fixed',
+          pb: '1px',
+          pt: '1px'
         }}
-        {...props}
-    >
-        <Container maxWidth="lg">
-            <Grid
-                container
-                spacing={3}
-            >
-                <Grid
-                    item
-                    md={3}
-                    sm={4}
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        order: {
-                            md: 1,
-                            xs: 4
-                        }
-                    }}
-                    xs={12}
+      >
+        <Divider />
+        <Box
+          sx={{
+            backgroundColor: theme.palette.background.default,
+            position: 'relative',
+            p: theme.spacing(0.25)
+
+          }}
+        >
+          <Grid container spacing={0}>
+            <Hidden mdDown>
+              <Grid container item xs={12} md={4}>
+                <List
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: 0
+                  }}
                 >
-                    <Logo />
-                    <Typography
-                        sx={{ mt: 1 }}
-                        variant="caption"
-                        color="text.textFooter"
-                    >
-                        © 2022 Alita.
-                    </Typography>
-                </Grid>
-                {sections.map((section, index) => (
-                    <Grid
-                        item
-                        key={section.title}
-                        md={3}
-                        sm={4}
-                        sx={{
-                            order: {
-                                md: index + 2,
-                                xs: index + 1
-                            }
-                        }}
-                        xs={12}
-                    >
+                  <ListItemButton component='a' href='#'>
+                    <ListItemText
+                      primary={
                         <Typography
-                            color="text.footer"
-                            variant="overline"
+                          variant='body2'
+                          color={theme.palette.text.secondary}
                         >
-                            {section.title}
+                          Privacy Policy
                         </Typography>
-                        <List disablePadding>
-                            {section.links.map((link) => (
-                                <ListItem
-                                    disableGutters
-                                    key={link.title}
-                                    sx={{
-                                        pb: 0,
-                                        pt: 1
-                                    }}
-                                >
-                                    <ListItemAvatar
-                                        sx={{
-                                            alignItems: 'center',
-                                            display: 'flex',
-                                            minWidth: 0,
-                                            mr: 0.5
-                                        }}
-                                    >
-                                        <RemoveOutlinedIcon sx={{
-                                            color: 'text.footer'
-                                        }} />
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        primary={(
-                                            <Link
-                                                href={link.href}
-                                                variant="subtitle2"
-                                                color='text.textFooter'
-                                            >
-                                                {link.title}
-                                            </Link>
-                                        )}
-                                    />
-                                </ListItem>
-                            ))}
-                        </List>
-                    </Grid>
-                ))}
+                      }
+                    />
+                  </ListItemButton>
+                  <ListItemButton component='a' href='#'>
+                    <ListItemText
+                      primary={
+                        <Typography
+                          variant='body2'
+                          color={theme.palette.text.secondary}
+                        >
+                          Terms of Use
+                        </Typography>
+                      }
+                    />
+                  </ListItemButton>
+                </List>
+              </Grid>
+            </Hidden>
+            <Grid container item xs={12} md={4} justifyContent='center'>
+              <List>
+                <ListItemButton>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant='body2'
+                        color={theme.palette.text.secondary}
+                      >
+                        Copyright &copy; {new Date().getFullYear()} Bobs Programming Academy.
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </List>
             </Grid>
-            <Divider
-                sx={{
-                    borderColor: (theme) => alpha(theme.palette.primary.contrastText, 0.12),
-                    my: 6
-                }}
-            />
-            <Typography
-                color="text.textFooter"
-                variant="caption"
-            >
-                {'All Rights Reserved by'} {''}
-                <Link
-                    href={'https://jrtec.io/'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="subtitle2"
-                    color='text.textFooter'
-                >
-                    JRTEC
-                </Link>
-            </Typography>
-        </Container>
-    </Box>
-);
+
+            <Grid container item xs={12} md={4} justifyContent='center'>
+              <List>
+                <ListItemButton>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant='body2'
+                        color={theme.palette.text.secondary}
+                      >
+                        Photo by
+                        {' '}
+                        <Link
+                          href='https://pixabay.com/users/marlyneart-15261801'
+                          target='_blank'
+                          rel='noreferrer'
+                          sx={{
+                            color: theme.palette.text.secondary
+                          }}
+                        >
+                          Martine Auvray
+                        </Link>
+                        {' '}
+                        on
+                        {' '}
+                        <Link
+                          href='https://pixabay.com/photos/dog-containment-telework-bichon-4977599/'
+                          target='_blank'
+                          rel='noreferrer'
+                          sx={{
+                            color: theme.palette.text.secondary
+                          }}
+                        >
+                          Pixabay
+                        </Link>.
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </List>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </React.Fragment>
+  );
+};
+
+export default Footer;

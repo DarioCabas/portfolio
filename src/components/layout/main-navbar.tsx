@@ -1,145 +1,215 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import NextLink from 'next/link';
-import { alpha, AppBar, Box, Button, Container, experimentalStyled, Grid, IconButton, Link, Toolbar } from '@mui/material';
+import {
+  AppBar,
+  Avatar,
+  Button,
+  Box,
+  Divider,
+  IconButton,
+  Link,
+  Toolbar,
+  Typography,
+  useScrollTrigger
+} from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DevicesIcon from '@mui/icons-material/DevicesOutlined';
+import EmailIcon from '@mui/icons-material/EmailOutlined';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/InfoOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ListIcon from '@mui/icons-material/FormatListBulleted';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Logo } from 'src/components/logo';
-import { makeStyles } from '@mui/styles';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
-interface MainNavbarProps {
-    onOpenSidebar?: () => void;
-}
+// Font Awesome Icons
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(faGraduationCap);
 
-const useStyles = makeStyles((theme) => ({
-    switch: {
-        verticalAlign: 'middle',
-        marginLeft: '4px',
-    },
-}));
+import ColorModeContext from 'src/components/color-mode-context';
+import CustomButton from 'src/components/common/custom-button';
 
-export const MainNavbar: FC<MainNavbarProps> = (props) => {
-    const { onOpenSidebar } = props;
-    const [modeTheme, setModeTheme] = useState<boolean>(true);
-    const classes = useStyles();
+const MainNavbar = ({ onSidebarOpen }) => {
+    const theme = useTheme();
+    const colorMode = React.useContext(ColorModeContext);
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 38,
+    });
 
     return (
-
-        <Container maxWidth="lg">
-            <Toolbar
-                disableGutters
-                sx={{ minHeight: 64 }}
+        <React.Fragment>
+            <AppBar
+                position='sticky'
+                color='transparent'
+                elevation={theme.palette.mode === 'dark' ? (0) : (trigger ? 1 : 0)}
+                sx={{
+                    top: 0,
+                    border: 0,
+                    backgroundColor: trigger ? theme.palette.background.default : 'transparent',
+                }}
             >
-                <NextLink
-                    href="/"
-                    passHref
-                >
-                    <a>
-                        <Logo
+                <Toolbar sx={{ minHeight: 70 }}>
+                    <Box
+                        alignItems='center'
+                        sx={{ display: { md: 'block', lg: 'none' } }}
+                    >
+                        <Button
+                            onClick={() => onSidebarOpen()}
+                            aria-label='Menu'
+                            variant='outlined'
                             sx={{
-                                display: {
-                                    md: 'inline',
-                                    xs: 'none'
-                                },
-                                height: 20,
-                                width: 20
+                                borderRadius: 2,
+                                minWidth: 'auto',
+                                padding: 1,
+                                color: theme.palette.primary.main,
+                                borderColor: alpha(theme.palette.primary.main, 0.2),
                             }}
+                        >
+                            <MenuIcon fontSize='medium' />
+                        </Button>
+                    </Box>
+                    <Link href='/' style={{ textDecoration: 'none' }}>
+                        <IconButton size='large' disabled>
+                            <Avatar
+                                variant='rounded'
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    height: 52,
+                                    width: 52,
+                                    marginRight: '15px'
+                                }}
+                            >
+                                <FontAwesomeIcon
+                                    icon={faGraduationCap}
+                                    style={{
+                                        color: theme.palette.common.white,
+                                        height: 30,
+                                        width: 30
+                                    }}
+                                />
+                            </Avatar>
+                            <Typography
+                                variant='h3'
+                                component='div'
+                                sx={{
+                                    flexGrow: 1,
+                                    color: theme.palette.text.primary,
+                                    fontFamily: '"Love Ya Like A Sister", cursive',
+                                    fontWeight: 'bold',
+                                    textDecoration: 'none',
+                                    display: { md: 'inline', xs: 'none' }
+                                }}
+                            >
+                                Bob
+                            </Typography>
+                        </IconButton>
+                    </Link>
+                    <Box sx={{ flexGrow: 1 }} />
+                    <Box
+                        sx={{
+                            alignItems: 'center',
+                            display: { lg: 'flex', md: 'none', xs: 'none' }
+                        }}
+                    >
+                        <CustomButton
+                            href='#home'
+                            icon={<HomeIcon />}
+                            text='Home'
                         />
-                    </a>
-                </NextLink>
-                <Box sx={{ flexGrow: 1 }} />
-                <IconButton
-                    color="inherit"
-                    onClick={onOpenSidebar}
-                    sx={{
-                        display: {
-                            md: 'none'
-                        }
-                    }}
-                >
-                    <MenuIcon fontSize="small" />
-                </IconButton>
-                <Box
-                    sx={{
-                        alignItems: 'center',
-                        display: {
-                            md: 'flex',
-                            xs: 'none'
-                        }
-                    }}
-                >
-                    <NextLink
-                        href="#home"
-                        passHref
-                    >
-                        <Link
-                            color="textSecondary"
-                            underline="none"
-                            variant="subtitle2"
+                        <CustomButton
+                            href='#about'
+                            icon={<InfoIcon />}
+                            text='About'
+                        />
+                        <CustomButton
+                            href='#projects'
+                            icon={<ListIcon />}
+                            text='Projects'
+                        />
+                        <CustomButton
+                            href='#technologies'
+                            icon={<DevicesIcon />}
+                            text='Technologies'
+                        />
+                        <CustomButton
+                            href='#contact'
+                            icon={<EmailIcon />}
+                            text='Contact'
+                        />
+                    </Box>
+                    <Divider
+                        orientation='vertical'
+                        sx={{
+                            height: 32,
+                            mx: 2,
+                            display: { lg: 'flex', md: 'none', xs: 'none' }
+                        }}
+                    />
+                    <Box sx={{ display: 'flex' }}>
+                        <IconButton
+                            onClick={colorMode.toggleColorMode}
+                            aria-label='Theme Mode'
+                            color={theme.palette.mode === 'dark' ? 'warning' : 'inherit'}
                         >
-                            Home
-                        </Link>
-                    </NextLink>
-                    <NextLink
-                        href="#goal"
-                        passHref
-                    >
-                        <Link
-                            color="textSecondary"
-                            sx={{ ml: 2 }}
-                            underline="none"
-                            variant="subtitle2"
+                            {theme.palette.mode === 'dark'
+                                ? (
+                                    <LightModeIcon fontSize='medium' />
+                                )
+                                : (
+                                    <DarkModeIcon fontSize='medium' />
+                                )
+                            }
+                        </IconButton>
+                    </Box>
+                    <Divider
+                        orientation='vertical'
+                        sx={{
+                            height: 32,
+                            mx: 2,
+                            display: { lg: 'flex', md: 'none', xs: 'none' }
+                        }}
+                    />
+                    <Box sx={{ display: { lg: 'flex', md: 'none', xs: 'none' } }}>
+                        <IconButton
+                            aria-label='YouTube'
+                            color='primary'
+                            href='#'
+                            target='_blank'
                         >
-                            Goal
-                        </Link>
-                    </NextLink>
-                    <NextLink
-                        href="#benefit"
-                        passHref
-                    >
-                        <Link
-                            color="textSecondary"
-                            component="a"
-                            sx={{ ml: 2 }}
-                            underline="none"
-                            variant="subtitle2"
+                            <YouTubeIcon fontSize='large' />
+                        </IconButton>
+                        <IconButton
+                            aria-label='LinkedIn'
+                            color='primary'
+                            href='#'
+                            target='_blank'
                         >
-                            Benefits
-                        </Link>
-                    </NextLink>
-                    <NextLink
-                        href="#about"
-                        passHref
-                    >
-                        <Link
-                            color="textSecondary"
-                            component="a"
-                            sx={{ ml: 2 }}
-                            underline="none"
-                            variant="subtitle2"
+                            <LinkedInIcon fontSize='large' />
+                        </IconButton>
+                        <IconButton
+                            aria-label='Instagram'
+                            color='primary'
+                            href='#'
+                            target='_blank'
                         >
-                            About
-                        </Link>
-                    </NextLink>
-                    <NextLink
-                        href="#contact"
-                        passHref
-                    >
-                        <Link
-                            color="textSecondary"
-                            component="a"
-                            sx={{ ml: 2 }}
-                            underline="none"
-                            variant="subtitle2"
-                        >
-                            Contact
-                        </Link>
-                    </NextLink>
-                </Box>
-            </Toolbar>
-        </Container>
+                            <InstagramIcon fontSize='large' />
+                        </IconButton>
+                    </Box>
+                    {theme.palette.mode === 'dark' && <Divider />}
+                </Toolbar>
+            </AppBar>
+        </React.Fragment>
     );
 };
 
 MainNavbar.propTypes = {
-    onOpenSidebar: PropTypes.func
+    onSidebarOpen: PropTypes.func,
 };
+
+export default MainNavbar;

@@ -1,215 +1,148 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
-import {
-    AppBar,
-    Avatar,
-    Button,
-    Box,
-    Divider,
-    IconButton,
-    Link,
-    Toolbar,
-    Typography,
-    useScrollTrigger,
-} from '@mui/material'
-import { alpha, useTheme } from '@mui/material/styles';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import DevicesIcon from '@mui/icons-material/DevicesOutlined';
-import EmailIcon from '@mui/icons-material/EmailOutlined';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/InfoOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import ListIcon from '@mui/icons-material/FormatListBulleted';
-import MenuIcon from '@mui/icons-material/Menu';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
-// Font Awesome Icons
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faGraduationCap);
+import HeroButtons from 'src/components/common/hero-buttons';
 
-import ColorModeContext from 'src/components/color-mode-context';
-import CustomButton from 'src/components/common/custom-button';
+const HomeHero:FC = () => {
+  const theme = useTheme();
+  const isMd = useMediaQuery(
+    theme.breakpoints.up('md'),
+    { defaultMatches: true }
+  );
 
-export const HomeHero: FC = ({ onSidebarOpen }) => {
-    const theme = useTheme();
-    const colorMode = React.useContext(ColorModeContext);
-    const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 38,
-    });
-
-    return (
-        <React.Fragment>
-            <AppBar
-                position='sticky'
-                color='transparent'
-                elevation={theme.palette.mode === 'dark' ? (0) : (trigger ? 1 : 0)}
-                sx={{
-                    top: 0,
-                    border: 0,
-                    backgroundColor: trigger ? theme.palette.background.default : 'transparent',
-                }}
+  return (
+    <div id='home'>
+      <Box sx={{ width: 1, height: 1 }}>
+        <Container
+          sx={{
+            maxWidth: '100%'
+          }}
+        >
+          <Box
+            display='flex'
+            flexDirection={{ xs: 'column', md: 'row' }}
+            position='relative'
+            minHeight={{ md: 600 }}
+          >
+            <Box
+              width={1}
+              order={{ xs: 2, md: 1 }}
+              display='flex'
+              alignItems='center'
             >
-                <Toolbar sx={{ minHeight: 70 }}>
-                    <Box
-                        alignItems='center'
-                        sx={{ display: { md: 'block', lg: 'none' } }}
+              <Container>
+                <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
+                  <Box marginBottom={2}>
+                    <Typography
+                      color={theme.palette.text.primary}
+                      variant='h2'
+                      fontWeight={700}
+                      align='center'
                     >
-                        <Button
-                            onClick={() => onSidebarOpen()}
-                            aria-label='Menu'
-                            variant='outlined'
-                            sx={{
-                                borderRadius: 2,
-                                minWidth: 'auto',
-                                padding: 1,
-                                color: theme.palette.primary.main,
-                                borderColor: alpha(theme.palette.primary.main, 0.2),
-                            }}
-                        >
-                            <MenuIcon fontSize='medium' />
-                        </Button>
-                    </Box>
-                    <Link href='/' style={{ textDecoration: 'none' }}>
-                        <IconButton size='large' disabled>
-                            <Avatar
-                                variant='rounded'
-                                sx={{
-                                    backgroundColor: theme.palette.primary.main,
-                                    height: 52,
-                                    width: 52,
-                                    marginRight: '15px'
-                                }}
-                            >
-                                <FontAwesomeIcon
-                                    icon={faGraduationCap}
-                                    style={{
-                                        color: theme.palette.common.white,
-                                        height: 30,
-                                        width: 30
-                                    }}
-                                />
-                            </Avatar>
-                            <Typography
-                                variant='h3'
-                                component='div'
-                                sx={{
-                                    flexGrow: 1,
-                                    color: theme.palette.text.primary,
-                                    fontFamily: '"Love Ya Like A Sister", cursive',
-                                    fontWeight: 'bold',
-                                    textDecoration: 'none',
-                                    display: { md: 'inline', xs: 'none' }
-                                }}
-                            >
-                                Bob's Programming Academy
-                            </Typography>
-                        </IconButton>
-                    </Link>
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box
-                        sx={{
-                            alignItems: 'center',
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
+                      Welcome to{' '}
+                    </Typography>
+                    <Typography
+                      color={theme.palette.primary.main}
+                      variant='h2'
+                      fontWeight={700}
+                      align='center'
+                      marginBottom={3}
                     >
-                        <CustomButton
-                            href='#home'
-                            icon={<HomeIcon />}
-                            text='Home'
-                        />
-                        <CustomButton
-                            href='#about'
-                            icon={<InfoIcon />}
-                            text='About'
-                        />
-                        <CustomButton
-                            href='#projects'
-                            icon={<ListIcon />}
-                            text='Projects'
-                        />
-                        <CustomButton
-                            href='#technologies'
-                            icon={<DevicesIcon />}
-                            text='Technologies'
-                        />
-                        <CustomButton
-                            href='#contact'
-                            icon={<EmailIcon />}
-                            text='Contact'
-                        />
+                      Bobs Programming Academy
+                    </Typography>
+                  </Box>
+                  <Box marginBottom={3}>
+                    <Typography
+                      variant='h6'
+                      component='p'
+                      color={theme.palette.text.secondary}
+                      align='justify'
+                    >
+                      In Bobs Programming Academy, we help both aspiring and established software developers gain more experience, take their skills to the next level and create excellent applications.
+                    </Typography>
+                  </Box>
+                  <HeroButtons />
+                </Box>
+              </Container>
+            </Box>
+            <Box
+              sx={{
+                flex: { xs: '0 0 100%', md: '0 0 50%' },
+                position: 'relative',
+                maxWidth: { xs: '100%', md: '50%' },
+                order: { xs: 1, md: 2 }
+              }}
+            >
+              <Box
+                sx={{
+                  width: { xs: 1, md: '50vw' },
+                  height: '100%',
+                  position: 'relative'
+                }}
+              >
+                <Box
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <Box
+                    sx={{
+                      overflow: 'hidden',
+                      left: '0%',
+                      width: 1,
+                      height: 1,
+                      position: { xs: 'relative', md: 'absolute' },
+                      clipPath: {
+                        xs: 'none',
+                        md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+                      },
+                      shapeOutside: {
+                        xs: 'none',
+                        md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        height: { xs: 'auto', md: 1 },
+                        '& img': {
+                          objectFit: 'cover',
+                        },
+                        '& .lazy-load-image-loaded': {
+                          height: 1,
+                          width: 1,
+                        },
+                      }}
+                    >
+                      <Box
+                        component={LazyLoadImage}
+                        src='/images/bg.jpg'
+                        alt='Background Image'
+                        effect='blur'
+                        height={{ xs: 'auto', md: 1 }}
+                        maxHeight={{ xs: 300, md: 1 }}
+                        width={1}
+                        maxWidth={1}
+                      />
                     </Box>
-                    <Divider
-                        orientation='vertical'
-                        sx={{
-                            height: 32,
-                            mx: 2,
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
-                    />
-                    <Box sx={{ display: 'flex' }}>
-                        <IconButton
-                            onClick={colorMode.toggleColorMode}
-                            aria-label='Theme Mode'
-                            color={theme.palette.mode === 'dark' ? 'warning' : 'inherit'}
-                        >
-                            {theme.palette.mode === 'dark'
-                                ? (
-                                    <LightModeIcon fontSize='medium' />
-                                )
-                                : (
-                                    <DarkModeIcon fontSize='medium' />
-                                )
-                            }
-                        </IconButton>
-                    </Box>
-                    <Divider
-                        orientation='vertical'
-                        sx={{
-                            height: 32,
-                            mx: 2,
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
-                    />
-                    <Box sx={{ display: { lg: 'flex', md: 'none', xs: 'none' } }}>
-                        <IconButton
-                            aria-label='YouTube'
-                            color='primary'
-                            href='#'
-                            target='_blank'
-                        >
-                            <YouTubeIcon fontSize='large' />
-                        </IconButton>
-                        <IconButton
-                            aria-label='LinkedIn'
-                            color='primary'
-                            href='#'
-                            target='_blank'
-                        >
-                            <LinkedInIcon fontSize='large' />
-                        </IconButton>
-                        <IconButton
-                            aria-label='Instagram'
-                            color='primary'
-                            href='#'
-                            target='_blank'
-                        >
-                            <InstagramIcon fontSize='large' />
-                        </IconButton>
-                    </Box>
-                    {theme.palette.mode === 'dark' && <Divider />}
-                </Toolbar>
-            </AppBar>
-        </React.Fragment>
-    );
-};
-
-HomeHero.propTypes = {
-    onSidebarOpen: PropTypes.func,
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Container>
+        <Divider sx={{ mt: 3 }} />
+      </Box>
+    </div>
+  );
 };
 
 export default HomeHero;
