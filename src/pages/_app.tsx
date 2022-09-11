@@ -1,4 +1,3 @@
-import '../../styles/globals.css'
 import type { AppProps } from 'next/app';
 import React, { useState, useEffect, useMemo } from 'react'
 import { red } from '@mui/material/colors';
