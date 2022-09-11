@@ -36,7 +36,7 @@ const Contact: FC = () => {
     <div id='contact'>
       <Box
         position='relative'
-        marginBottom={15}
+        marginBottom={0}
       >
         <Box
           maxWidth={{ sm: 720, md: 1236 }}
@@ -44,9 +44,9 @@ const Contact: FC = () => {
           margin='0 auto'
           paddingX={2}
           paddingY={{ xs: 4, sm: 6, md: 8 }}
-          paddingBottom={10}
+          paddingBottom={0}
         >
-          <Box marginBottom={4}>
+          <Box marginBottom={0}>
             <Typography
               variant='h3'
               align='center'
@@ -70,17 +70,11 @@ const Contact: FC = () => {
           </Box>
           {contact.map((item, i) => (
             <Box key={i}>
-              <Box sx={{ backgroundColor: 'red'}}>
-                <Map
-                  coordinates={[item.latitude, item.longitude]}
-                  zoom={13}
-                />
-              </Box>
               <Box
                 display='flex'
                 flexDirection={{ xs: 'column', sm: 'row' }}
                 justifyContent='center'
-                marginTop={6}
+                marginTop={0}
                 marginBottom={3}
               >
                 <Box
@@ -139,6 +133,13 @@ const Contact: FC = () => {
                   />
                 </Box>
               </Box>
+              <Box>
+                <Map
+                  coordinates={[item.latitude, item.longitude]}
+                  zoom={13}
+                />
+              </Box>
+              
             </Box>
           ))}
         </Box>

@@ -54,7 +54,7 @@ const Footer = () => {
                           variant='body2'
                           color={theme.palette.text.secondary}
                         >
-                          Privacy Policy
+                          React Developer
                         </Typography>
                       }
                     />
@@ -66,7 +66,7 @@ const Footer = () => {
                           variant='body2'
                           color={theme.palette.text.secondary}
                         >
-                          Terms of Use
+                          Human
                         </Typography>
                       }
                     />
@@ -83,7 +83,7 @@ const Footer = () => {
                         variant='body2'
                         color={theme.palette.text.secondary}
                       >
-                        Copyright &copy; {new Date().getFullYear()} Bobs Programming Academy.
+                        Copyright &copy; {new Date().getFullYear()} Dario Cabascango(AyahumaDev).
                       </Typography>
                     }
                   />
@@ -100,31 +100,7 @@ const Footer = () => {
                         variant='body2'
                         color={theme.palette.text.secondary}
                       >
-                        Photo by
-                        {' '}
-                        <Link
-                          href='https://pixabay.com/users/marlyneart-15261801'
-                          target='_blank'
-                          rel='noreferrer'
-                          sx={{
-                            color: theme.palette.text.secondary
-                          }}
-                        >
-                          Martine Auvray
-                        </Link>
-                        {' '}
-                        on
-                        {' '}
-                        <Link
-                          href='https://pixabay.com/photos/dog-containment-telework-bichon-4977599/'
-                          target='_blank'
-                          rel='noreferrer'
-                          sx={{
-                            color: theme.palette.text.secondary
-                          }}
-                        >
-                          Pixabay
-                        </Link>.
+                        Quito-Ecuador
                       </Typography>
                     }
                   />
