@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
-import axios from 'axios';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Chip from '@mui/material/Chip';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Chip,
+  Divider,
+  Grid,
+  Typography
+} from '@mui/material'
 import { useTheme } from '@mui/material/styles';
 
 const projects = [
