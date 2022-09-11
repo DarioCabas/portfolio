@@ -10,27 +10,21 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
+const technologies = [
+    {
+        name: 'Javascript',
+        icon: '',
+        alt: 'Javascript'
+    },
+    {
+        name: 'Typescript',
+        icon: '',
+        atl: 'Typescript'
+    }
+];
+
 const Technologies:FC = () => {
     const theme = useTheme();
-
-    const [technologies, setTechnologies] = React.useState([]);
-
-    const fetchTechnologies = () => {
-        axios.get('/technologies', {
-            headers: {
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': process.env.BACKEND_URL,
-            }
-        })
-            .then(response => {
-                setTechnologies(response.data);
-            })
-            .catch(err => console.log(err));
-    };
-
-    React.useEffect(() => {
-        fetchTechnologies();
-    }, []);
 
     return (
         <div id='technologies'>
@@ -61,7 +55,7 @@ const Technologies:FC = () => {
                             marginTop={4}
                             marginBottom={6}
                         >
-                            Technologies we use to build our products
+                            Technologies I use to build my products
                         </Typography>
                     </Box>
                     <Grid container spacing={2}>
@@ -105,7 +99,7 @@ const Technologies:FC = () => {
                                                     marginBottom: 2
                                                 }}
                                             >
-                                                <Image src={item.icon} height={50} width={50} />
+                                                <Image alt={item.alt} src={item.icon} height={50} width={50} />
                                             </Box>
                                         </Box>
                                         <Typography

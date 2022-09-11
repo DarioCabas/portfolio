@@ -89,7 +89,7 @@ const Projects:FC = () => {
                         marginTop={4}
                         marginBottom={6}
                     >
-                        View some of our latest projects
+                        View some of my latest projects
                     </Typography>
                 </Box>
                 <Grid container spacing={4}>
