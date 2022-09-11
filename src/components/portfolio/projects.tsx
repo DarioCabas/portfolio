@@ -124,6 +124,7 @@ const Projects: FC = () => {
               item
               xs={12}
               md={4}
+              data-aos='fade-up'
             >
               <Box
                 display='block'
