@@ -20,6 +20,7 @@ const Map: FC<PropMap> = (props) => {
   useEffect(() => {
     if (map) {
       setInterval(function () {
+        // @ts-ignore
         map.invalidateSize();
       }, 100);
     }

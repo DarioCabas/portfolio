@@ -42,6 +42,7 @@ const MyApp: FC<EnhancedAppProps> = (props) => {
     // Remove the server-side injected CSS
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
+      // @ts-ignore
       jssStyles.parentElement.removeChild(jssStyles);
     }
 
@@ -65,12 +66,14 @@ const MyApp: FC<EnhancedAppProps> = (props) => {
         />
       </Head>
       <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={customTheme[mode]}>
-          <CssBaseline />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+        {// @ts-ignore
+          <ThemeProvider theme={customTheme[mode]}>
+            <CssBaseline />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        }
       </ColorModeContext.Provider>
     </CacheProvider>
   )
