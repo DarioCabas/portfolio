@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
+  Avatar,
   Box,
   Container,
   Divider,
@@ -11,7 +12,7 @@ import { useTheme } from '@mui/material/styles';
 
 import HeroButtons from 'src/components/common/hero-buttons';
 
-const HomeHero:FC = () => {
+const HomeHero: FC = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(
     theme.breakpoints.up('md'),
@@ -79,7 +80,7 @@ const HomeHero:FC = () => {
                 flex: { xs: '0 0 100%', md: '0 0 50%' },
                 position: 'relative',
                 maxWidth: { xs: '100%', md: '50%' },
-                order: { xs: 1, md: 2 }
+                order: { xs: 1, md: 2 },
               }}
             >
               <Box
@@ -93,50 +94,22 @@ const HomeHero:FC = () => {
                   sx={{
                     width: '100%',
                     height: '100%',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
                   }}
                 >
-                  <Box
+                  <Avatar
+                    src="/static/front/front.jpg"
+                    alt="front"
                     sx={{
-                      overflow: 'hidden',
-                      left: '0%',
-                      width: 1,
-                      height: 1,
-                      position: { xs: 'relative', md: 'absolute' },
-                      clipPath: {
-                        xs: 'none',
-                        md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-                      },
-                      shapeOutside: {
-                        xs: 'none',
-                        md: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-                      },
+                      display: 'flex',
+                      alignItems: 'center',
+                      width: isMd ? 300 : 150,
+                      height: isMd ? 300 : 150
                     }}
-                  >
-                    <Box
-                      sx={{
-                        height: { xs: 'auto', md: 1 },
-                        '& img': {
-                          objectFit: 'cover',
-                        },
-                        '& .lazy-load-image-loaded': {
-                          height: 1,
-                          width: 1,
-                        },
-                      }}
-                    >
-                      <Box
-                        component={LazyLoadImage}
-                        src='/images/bg.jpg'
-                        alt='Background Image'
-                        effect='blur'
-                        height={{ xs: 'auto', md: 1 }}
-                        maxHeight={{ xs: 300, md: 1 }}
-                        width={1}
-                        maxWidth={1}
-                      />
-                    </Box>
-                  </Box>
+                  />
                 </Box>
               </Box>
             </Box>

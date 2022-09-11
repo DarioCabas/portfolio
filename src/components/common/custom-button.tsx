@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 
-const CustomButton = ({ href, icon, text }) => {
+const CustomButton:FC = ({ href, icon, text }) => {
   const theme = useTheme();
 
   return (

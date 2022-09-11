@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { MapContainer, Circle, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const Map = ({ coordinates, zoom }) => {
+interface PropMap {
+    coordinates: string[]
+    zoom: number
+}
+
+const Map: FC<PropMap> = (props) => {
+    const { coordinates, zoom } = props
     const theme = useTheme();
     const position = coordinates;
     const fillBlueOptions = { fillColor: theme.palette.primary.main };
