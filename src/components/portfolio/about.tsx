@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import axios from 'axios';
 import {
   Box,
   Divider,
@@ -55,7 +54,7 @@ const About: FC = () => {
               data-aos='fade-up'
               gutterBottom
             >
-              About us
+              About me
             </Typography>
             <Typography
               variant='h6'
@@ -65,7 +64,7 @@ const About: FC = () => {
               marginTop={4}
               marginBottom={6}
             >
-              We help software developers learn new skills, gain more experience and create excellent applications.
+              I help software developers and people learn new skills, gain more experience and create excellent applications. In the same way I learn of them
             </Typography>
           </Box>
           <Grid container spacing={4}>

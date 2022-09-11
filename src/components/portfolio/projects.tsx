@@ -13,27 +13,53 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
+const projects = [
+    {
+        name: 'One',
+        description: 'This is first project',
+        image: '',
+        tags: [
+            {
+                name: 'first'
+            },
+            {   
+                name: 'second'
+            }
+        ],
+        link: ''
+    },
+    {
+        name: 'One',
+        description: 'This is first project',
+        image: '',
+        tags: [
+            {
+                name: 'first'
+            },
+            {
+                name: 'second'
+            }
+        ],
+        link: ''
+    },
+    {
+        name: 'One',
+        description: 'This is first project',
+        image: '',
+        tags: [
+            {
+                name: 'first'
+            },
+            {
+                name: 'second'
+            }
+        ],
+        link: ''
+    }
+]
+
 const Projects:FC = () => {
     const theme = useTheme();
-
-    const [projects, setProjects] = React.useState([]);
-
-    const fetchProjects = () => {
-        axios.get('/projects', {
-            headers: {
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': process.env.BACKEND_URL,
-            }
-        })
-            .then(response => {
-                setProjects(response.data);
-            })
-            .catch(err => console.log(err));
-    };
-
-    React.useEffect(() => {
-        fetchProjects();
-    }, []);
 
     return (
         <div id='projects'>
