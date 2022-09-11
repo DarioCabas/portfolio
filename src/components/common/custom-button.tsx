@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 
 interface PropsButtonCustom {
   href: string,
-  icon: string,
+  icon: ReactNode,
   text: string,
 }
 

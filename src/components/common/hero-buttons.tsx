@@ -28,7 +28,6 @@ const HeroButtons: FC = () => {
                     color='primary'
                     size='large'
                     href='#about'
-                    endIcon={<HelpIcon />}
                     fullWidth={isMd ? false : true}
                     disableElevation={true}
                     sx={{
@@ -44,7 +43,7 @@ const HeroButtons: FC = () => {
                         }
                     }}
                 >
-                    Learn More
+                    Know more
                 </Button>
                 <Box
                     marginTop={{ xs: 2, sm: 0 }}
@@ -56,8 +55,7 @@ const HeroButtons: FC = () => {
                         variant='outlined'
                         color='primary'
                         size='large'
-                        href='#'
-                        endIcon={<ManageSearchIcon />}
+                        href='#contact'
                         fullWidth={isMd ? false : true}
                         disableElevation={true}
                         sx={{
@@ -73,7 +71,7 @@ const HeroButtons: FC = () => {
                             }
                         }}
                     >
-                        View Our Work
+                        Contact me
                     </Button>
                 </Box>
             </Box>
