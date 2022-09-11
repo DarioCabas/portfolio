@@ -47,7 +47,8 @@ const HomeHero:FC = () => {
                       fontWeight={700}
                       align='center'
                     >
-                      Welcome to{' '}
+                      Hi I&apos;m
+                      {' '}
                     </Typography>
                     <Typography
                       color={theme.palette.primary.main}
@@ -56,7 +57,7 @@ const HomeHero:FC = () => {
                       align='center'
                       marginBottom={3}
                     >
-                      Bobs Programming Academy
+                      Dario Cabascango
                     </Typography>
                   </Box>
                   <Box marginBottom={3}>
@@ -66,7 +67,7 @@ const HomeHero:FC = () => {
                       color={theme.palette.text.secondary}
                       align='justify'
                     >
-                      In Bobs Programming Academy, we help both aspiring and established software developers gain more experience, take their skills to the next level and create excellent applications.
+                      Developer, tech enthusiast and with creative skills, interested in developing implementable technology to solve challenging tasks. I use React to make mobile and web apps thinking in the user
                     </Typography>
                   </Box>
                   <HeroButtons />
