@@ -14,7 +14,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import type { FC } from 'react';
 import Head from 'next/head';
-import { ThemeOptions } from '@mui/material';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -48,8 +47,6 @@ const MyApp: FC<EnhancedAppProps> = (props) => {
 
     AOS.init({
       once: true,
-      delay: 0,
-      duration: 800,
       offset: 0,
       easing: 'ease-in-out',
     });

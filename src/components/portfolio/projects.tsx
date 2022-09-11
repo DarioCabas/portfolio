@@ -125,16 +125,13 @@ const Projects: FC = () => {
               xs={12}
               md={4}
               data-aos='fade-up'
-              data-aos-delay={100}
-              data-aos-offset={100}
-              data-aos-duration={600}
             >
               <Box
                 display='block'
                 width={1}
                 height={1}
                 sx={{
-                  transition: 'all .2s ease-in-out',
+                  transition: 'all .0s ease-in-out',
                   '&:hover': {
                     transform: `translateY(-${theme.spacing(1 / 2)})`
                   }

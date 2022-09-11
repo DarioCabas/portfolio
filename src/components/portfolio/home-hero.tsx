@@ -19,7 +19,6 @@ const HomeHero: FC = () => {
     theme.breakpoints.up('md'),
     { defaultMatches: true }
   );
-
   return (
     <div id='home'>
       <Box sx={{ width: 1, height: 1 }}>
@@ -41,7 +40,9 @@ const HomeHero: FC = () => {
               alignItems='center'
             >
               <Container>
-                <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
+                <Box
+                  data-aos={isMd ? 'fade-right' : 'fade-up'}
+                >
                   <Box marginBottom={2}>
                     <Typography
                       color={theme.palette.text.primary}
@@ -102,7 +103,7 @@ const HomeHero: FC = () => {
                   }}
                 >
                   <Avatar
-                    src="/static/front/front.jpg"
+                    src="/static/front/front.png"
                     alt="front"
                     sx={{
                       display: 'flex',

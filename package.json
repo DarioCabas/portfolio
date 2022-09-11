@@ -18,7 +18,7 @@
     "@mui/material": "^5.10.4",
     "@mui/styles": "^5.10.3",
     "@types/react-leaflet": "^2.8.2",
-    "aos": "^2.3.4",
+    "aos": "^3.0.0-beta.6",
     "axios": "^0.27.2",
     "leaflet": "^1.8.0",
     "next": "12.3.0",
