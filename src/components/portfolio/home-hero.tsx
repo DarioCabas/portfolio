@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
+import {
+  Box,
+  Container,
+  Divider,
+  Typography
+} from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
