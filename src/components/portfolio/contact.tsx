@@ -70,7 +70,7 @@ const Contact: FC = () => {
           </Box>
           {contact.map((item, i) => (
             <Box key={i}>
-              <Box marginBottom={4}>
+              <Box sx={{ backgroundColor: 'red'}}>
                 <Map
                   coordinates={[item.latitude, item.longitude]}
                   zoom={13}
