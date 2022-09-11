@@ -29,7 +29,7 @@ const Map: FC<PropMap> = (props) => {
             center={position}
             zoom={zoom}
             scrollWheelZoom={false}
-            whenCreated={setMap}
+            whenReady={() =>setMap}
             style={{ height: '400px', width: '100%' }}
         >
             <TileLayer
