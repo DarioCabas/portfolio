@@ -2,7 +2,14 @@ import React, { FC } from 'react';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 
-const CustomButton:FC = ({ href, icon, text }) => {
+interface PropsButtonCustom {
+  href: string,
+  icon: string,
+  text: string,
+}
+
+const CustomButton: FC<PropsButtonCustom> = (props) => {
+  const { href, icon, text } = props;
   const theme = useTheme();
 
   return (

@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { MapContainer, Circle, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { LatLngTuple } from 'leaflet';
 
 interface PropMap {
-    coordinates: string[]
+    coordinates: LatLngTuple
     zoom: number
 }
 

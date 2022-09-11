@@ -16,8 +16,8 @@ const contact = [
   {
     email: 'hz-hertzio@hotmail.com',
     address: 'Quito-Ecuador',
-    latitude: '-0.1763428',
-    longitude: '-78.4657569'
+    latitude: -0.1763428,
+    longitude: -78.4657569
   }
 ]
 
