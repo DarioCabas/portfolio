@@ -13,14 +13,64 @@ import { useTheme } from '@mui/material/styles';
 const technologies = [
     {
         name: 'Javascript',
-        icon: '',
+        icon: '/static/images-portfolio/javascript.svg',
         alt: 'Javascript'
     },
     {
         name: 'Typescript',
-        icon: '',
+        icon: '/static/images-portfolio/typescript.svg',
         atl: 'Typescript'
-    }
+    },
+    {
+        name: 'Next.js',
+        icon: '/static/images-portfolio/next-js.svg',
+        atl: 'Next.js'
+    },
+    {
+        name: 'Gatsby',
+        icon: '/static/images-portfolio/gatsby.svg',
+        atl: 'Gatsby'
+    },
+    {
+        name: 'MUI',
+        icon: '/static/images-portfolio/material-ui-1.svg',
+        atl: 'TMaterial UI'
+    },
+    {
+        name: 'React JS',
+        icon: '/static/images-portfolio/react-2.svg',
+        atl: 'React js'
+    },
+    {
+        name: 'React Native',
+        icon: '/static/images-portfolio/react-native-1.svg',
+        atl: 'React Native'
+    },
+    {
+        name: 'Redux',
+        icon: '/static/images-portfolio/redux.svg',
+        atl: 'Redux'
+    },
+    {
+        name: 'Vscode',
+        icon: '/static/images-portfolio/visual-studio-code-1.svg',
+        atl: 'Visual studio code'
+    },
+    {
+        name: 'Python',
+        icon: '/static/images-portfolio/python-5.svg',
+        atl: 'Python'
+    },
+    {
+        name: 'NativeBase',
+        icon: '/static/images-portfolio/nativebaselogo.svg',
+        atl: 'NativeBase'
+    },
+    {
+        name: 'Github',
+        icon: '/static/images-portfolio/github-icon-1.svg',
+        atl: 'Github'
+    },
 ];
 
 const Technologies:FC = () => {
