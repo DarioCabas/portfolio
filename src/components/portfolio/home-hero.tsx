@@ -11,6 +11,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 import HeroButtons from 'src/components/common/hero-buttons';
+import { ComponentParticles } from '../common/particles';
 
 const HomeHero: FC = () => {
   const theme = useTheme();
@@ -24,7 +25,7 @@ const HomeHero: FC = () => {
       <Box sx={{ width: 1, height: 1 }}>
         <Container
           sx={{
-            maxWidth: '100%'
+            maxWidth: '100%',
           }}
         >
           <Box

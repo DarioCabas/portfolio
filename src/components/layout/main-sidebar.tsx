@@ -11,18 +11,18 @@ import { useTheme } from '@mui/material/styles';
 import DevicesIcon from '@mui/icons-material/Devices';
 import EmailIcon from '@mui/icons-material/EmailOutlined';
 import HomeIcon from '@mui/icons-material/HomeOutlined';
-import InfoIcon from '@mui/icons-material/InfoOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import ListIcon from '@mui/icons-material/FormatListBulleted';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import GridViewIcon from '@mui/icons-material/GridView';
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faAtom} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faGraduationCap);
+library.add(faAtom);
 
 import CustomButton from 'src/components/common/custom-button';
+import AccessibilityNew from '@mui/icons-material/AccessibilityNew';
 
 interface MainSidebarProps {
   onClose?: () => void;
@@ -49,24 +49,17 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
         }}
       >
         <Box sx={{ height: '100%', padding: 1 }}>
-          <Box width={1} paddingX={2} paddingY={1}>
+          <Box width={1} paddingX={0} paddingY={1}>
             <Link href='/' style={{ textDecoration: 'none' }}>
               <IconButton size='large' disabled>
                 <Avatar
-                  variant='rounded'
-                  sx={{
-                    backgroundColor: theme.palette.primary.main,
-                    height: 52,
-                    width: 52,
-                    marginRight: '15px'
-                  }}
                 >
                   <FontAwesomeIcon
-                    icon={faGraduationCap}
+                    icon={faAtom}
                     style={{
                       color: theme.palette.common.white,
-                      height: 30,
-                      width: 30
+                      height: 20,
+                      width: 20
                     }}
                   />
                 </Avatar>
@@ -81,7 +74,7 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
                   }}
                   flexGrow={1}
                 >
-                  Bobs Programming Academy
+                  AyahumaDev
                 </Typography>
               </IconButton>
             </Link>
@@ -95,14 +88,14 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
             <Box paddingY={1}>
               <CustomButton
                 href='#about'
-                icon={<InfoIcon />}
+                icon={<AccessibilityNew />}
                 text='About'
               />
             </Box>
             <Box paddingY={1}>
               <CustomButton
                 href='#projects'
-                icon={<ListIcon />}
+                icon={<GridViewIcon />}
                 text='Projects'
               />
             </Box>
@@ -125,7 +118,7 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
                 <IconButton
                   aria-label='YouTube'
                   color='primary'
-                  href='#'
+                  href='https://www.youtube.com/channel/UCh_p3UkcmtjVZqxrsbP_lvQ/featured'
                   target='_blank'
                 >
                   <YouTubeIcon fontSize='large' />
@@ -133,7 +126,7 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
                 <IconButton
                   aria-label='LinkedIn'
                   color='primary'
-                  href='#'
+                  href='https://www.linkedin.com/in/dario-cabascango-9724431a3/'
                   target='_blank'
                 >
                   <LinkedInIcon fontSize='large' />

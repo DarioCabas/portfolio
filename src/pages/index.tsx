@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { ComponentParticles } from 'src/components/common/particles'
 import About from 'src/components/portfolio/about'
 import Contact from 'src/components/portfolio/contact'
 import HomeHero from 'src/components/portfolio/home-hero'
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
         </title>
       </Head>
       <main>
+        <ComponentParticles />
         <HomeHero />
         <About />
         <Projects />
