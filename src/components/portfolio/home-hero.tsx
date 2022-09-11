@@ -103,7 +103,7 @@ const HomeHero: FC = () => {
                   }}
                 >
                   <Avatar
-                    src="/static/front/front.jpg"
+                    src="/static/front/front.png"
                     alt="front"
                     sx={{
                       display: 'flex',
