@@ -7,7 +7,6 @@ import type { Engine, Container } from "tsparticles-engine";
 export const ComponentParticles = () => {
   const theme = useTheme();
   const dark = theme.palette.mode;
-  console.log('darj', dark);
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
 
