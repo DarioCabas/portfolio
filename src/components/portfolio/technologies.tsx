@@ -114,6 +114,7 @@ const Technologies:FC = () => {
                                 <Box
                                     width={1}
                                     height={1}
+                                    data-aos='fade-up'
                                     component={Card}
                                     display='flex'
                                     flexDirection='column'

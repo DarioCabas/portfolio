@@ -19,7 +19,6 @@ const HomeHero: FC = () => {
     theme.breakpoints.up('md'),
     { defaultMatches: true }
   );
-  console.log('md', isMd);
   return (
     <div id='home'>
       <Box sx={{ width: 1, height: 1 }}>
@@ -42,9 +41,7 @@ const HomeHero: FC = () => {
             >
               <Container>
                 <Box
-                  sx={{
-                    transition: 'all .1s ease-in-out',
-                  }}
+                  data-aos={isMd ? 'fade-right' : 'fade-up'}
                 >
                   <Box marginBottom={2}>
                     <Typography
