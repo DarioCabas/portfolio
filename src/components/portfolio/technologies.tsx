@@ -114,10 +114,6 @@ const Technologies:FC = () => {
                                 <Box
                                     width={1}
                                     height={1}
-                                    data-aos='fade-up'
-                                    data-aos-delay={100}
-                                    data-aos-offset={100}
-                                    data-aos-duration={600}
                                     component={Card}
                                     display='flex'
                                     flexDirection='column'
@@ -131,7 +127,7 @@ const Technologies:FC = () => {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
-                                            transition: 'all .2s ease-in-out',
+                                            transition: 'all .0s ease-in-out',
                                             '&:hover': {
                                                 transform: `translateY(-${theme.spacing(1)})`,
                                             },
