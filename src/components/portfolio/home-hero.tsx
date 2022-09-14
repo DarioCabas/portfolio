@@ -9,9 +9,8 @@ import {
 } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
 import HeroButtons from 'src/components/common/hero-buttons';
-import { ComponentParticles } from '../common/particles';
+import { motion } from 'framer-motion';
 
 const HomeHero: FC = () => {
   const theme = useTheme();
@@ -41,10 +40,28 @@ const HomeHero: FC = () => {
             >
               <Container>
                 <Box
-                  data-aos={isMd ? 'fade-right' : 'fade-up'}
+                // data-aos={isMd ? 'fade-right' : 'fade-up'}
                 >
                   <Box marginBottom={2}>
                     <Typography
+                      component={motion.div}
+                      animate={{
+                        scale: [1, 2, 2, 1, 1],
+                        rotate: [0, 0, 180, 180, 0],
+                        borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+                       }}
+                      transition={{ 
+                        duration: 2,
+                        ease: "easeInOut",
+                        times: [0, 0.2, 0.5, 0.8, 1],
+                        repeat: 0,
+                        repeatDelay: 1
+                       }}
+                      whileHover={{
+                        scale: 1.2,
+                        transition: { duration: 0.3 }
+                      }}
+                      whileTap={{ scale: 0.9 }}
                       color={theme.palette.text.primary}
                       variant='h2'
                       fontWeight={700}
@@ -54,11 +71,17 @@ const HomeHero: FC = () => {
                       {' '}
                     </Typography>
                     <Typography
+                      component={motion.div}
                       color={theme.palette.primary.main}
                       variant='h2'
                       fontWeight={700}
                       align='center'
                       marginBottom={3}
+                      whileHover={{
+                        scale: 1.2,
+                        transition: { duration: 0.3 }
+                      }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       Dario Cabascango
                     </Typography>

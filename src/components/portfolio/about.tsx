@@ -19,17 +19,17 @@ const about = [
   {
     icon: <PaletteIcon sx={{ fontSize: 40 }} />,
     title: 'Design',
-    description: 'I create beautiful and modern designs optimized for multiple color(light and dark theme)'
+    description: 'I create beautiful and modern designs optimized for multiple colors (light and dark themes)'
   },
   {
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
-    title: 'Design',
-    description: 'I develop responsive, scalable  and fast applications using the best standards and programming practices'
+    title: 'Development',
+    description: 'I develop responsive, scalable, and fast applications using the best standards and programming practices'
   },
   {
     icon: <SettingsIcon sx={{ fontSize: 40 }} />,
-    title: 'Design',
-    description: 'Once the application is ready, I help you launch it and teach you how edit, update and maintain it '
+    title: 'Launch & Maintenance',
+    description: 'Once the application is ready, I help you launch it and teach you how to edit, update and maintain it.'
   }
 ]
 
