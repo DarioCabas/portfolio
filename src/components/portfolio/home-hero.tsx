@@ -45,18 +45,6 @@ const HomeHero: FC = () => {
                   <Box marginBottom={2}>
                     <Typography
                       component={motion.div}
-                      animate={{
-                        scale: [1, 2, 2, 1, 1],
-                        rotate: [0, 0, 180, 180, 0],
-                        borderRadius: ["0%", "0%", "50%", "50%", "0%"]
-                       }}
-                      transition={{ 
-                        duration: 2,
-                        ease: "easeInOut",
-                        times: [0, 0.2, 0.5, 0.8, 1],
-                        repeat: 0,
-                        repeatDelay: 1
-                       }}
                       whileHover={{
                         scale: 1.2,
                         transition: { duration: 0.3 }
@@ -126,6 +114,17 @@ const HomeHero: FC = () => {
                   }}
                 >
                   <Avatar
+                    component={motion.div}
+                    animate={{
+                      scale: [1, 1.5, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeInOut",
+                      times: [0, 0.2, 0.5, 0.8, 1],
+                      repeat: 0,
+                      repeatDelay: 1
+                    }}
                     src="/static/front/front.png"
                     alt="front"
                     sx={{
