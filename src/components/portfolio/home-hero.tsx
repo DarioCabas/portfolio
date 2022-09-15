@@ -22,6 +22,10 @@ const HomeHero: FC = () => {
     <div id='home'>
       <Box sx={{ width: 1, height: 1 }}>
         <Container
+          component={motion.div}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 2, scale: 1 }}
+          transition={{ duration: 1 }}
           sx={{
             maxWidth: '100%',
           }}
@@ -40,7 +44,6 @@ const HomeHero: FC = () => {
             >
               <Container>
                 <Box
-                // data-aos={isMd ? 'fade-right' : 'fade-up'}
                 >
                   <Box marginBottom={2}>
                     <Typography
@@ -114,17 +117,6 @@ const HomeHero: FC = () => {
                   }}
                 >
                   <Avatar
-                    component={motion.div}
-                    animate={{
-                      scale: [1, 1.5, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      ease: "easeInOut",
-                      times: [0, 0.2, 0.5, 0.8, 1],
-                      repeat: 0,
-                      repeatDelay: 1
-                    }}
                     src="/static/front/front.png"
                     alt="front"
                     sx={{

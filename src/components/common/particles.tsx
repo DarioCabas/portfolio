@@ -23,7 +23,7 @@ export const ComponentParticles = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fpsLimit: 40,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {
@@ -67,7 +67,7 @@ export const ComponentParticles = () => {
               default: "bounce",
             },
             random: false,
-            speed: 6,
+            speed: 1,
             straight: false,
           },
           number: {
