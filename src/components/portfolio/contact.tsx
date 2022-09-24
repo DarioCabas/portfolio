@@ -6,7 +6,8 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Typography
+  Typography,
+  Link
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationIcon from '@mui/icons-material/LocationOn';
@@ -133,7 +134,13 @@ const Contact: FC = () => {
                     </Box>
                     <ListItemText
                       primary='Email'
-                      secondary={item.email}
+                      secondary={
+                        <Link
+                          href={"mailto:hz-hertzio@hotmail.com"}
+                        >
+                          {item.email}
+                        </Link>
+                      }
                     />
                   </Box>
                 </Box>
