@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef} from 'react';
 import {
   Box,
   Divider,
@@ -14,6 +14,7 @@ import { useTheme } from '@mui/material/styles';
 import PaletteIcon from '@mui/icons-material/Palette';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CodeIcon from '@mui/icons-material/Code';
+import { motion, useInView } from 'framer-motion';
 
 const about = [
   {
@@ -35,6 +36,9 @@ const about = [
 
 const About: FC = () => {
   const theme = useTheme();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  console.log('about', isInView);
   return (
     <div id='about'>
       <Box
@@ -44,14 +48,13 @@ const About: FC = () => {
         paddingX={2}
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
-        <Box>
+        <Box ref={ref}>
           <Box marginBottom={4}>
             <Typography
               variant='h3'
               align='center'
               fontWeight={700}
               marginTop={theme.spacing(1)}
-              data-aos='fade-up'
               gutterBottom
             >
               About me
@@ -60,7 +63,6 @@ const About: FC = () => {
               variant='h6'
               color={theme.palette.text.secondary}
               align='center'
-              data-aos='fade-up'
               marginTop={4}
               marginBottom={6}
             >

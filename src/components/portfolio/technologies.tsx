@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import Avatar from '@mui/material/Avatar';
@@ -9,6 +9,7 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import { motion, useInView } from 'framer-motion';
 
 const technologies = [
     {
@@ -75,15 +76,18 @@ const technologies = [
 
 const Technologies:FC = () => {
     const theme = useTheme();
-
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    console.log('tech', isInView);
     return (
-        <div id='technologies'>
+        <div id='technologies' >
             <Box
                 maxWidth={{ sm: 720, md: 1236 }}
                 width={1}
                 margin='0 auto'
                 paddingX={2}
                 paddingY={{ xs: 4, sm: 6, md: 8 }}
+                ref={ref}
             >
                 <Box>
                     <Box marginBottom={4}>
@@ -92,7 +96,6 @@ const Technologies:FC = () => {
                             align='center'
                             fontWeight={700}
                             marginTop={theme.spacing(1)}
-                            data-aos='fade-up'
                             gutterBottom
                         >
                             Technologies
@@ -101,7 +104,6 @@ const Technologies:FC = () => {
                             variant='h6'
                             align='center'
                             color={theme.palette.text.secondary}
-                            data-aos='fade-up'
                             marginTop={4}
                             marginBottom={6}
                         >
@@ -114,7 +116,6 @@ const Technologies:FC = () => {
                                 <Box
                                     width={1}
                                     height={1}
-                                    data-aos='fade-up'
                                     component={Card}
                                     display='flex'
                                     flexDirection='column'

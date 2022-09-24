@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef} from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
   Avatar,
@@ -10,16 +10,19 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import HeroButtons from 'src/components/common/hero-buttons';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const HomeHero: FC = () => {
   const theme = useTheme();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  console.log('home', isInView);
   const isMd = useMediaQuery(
     theme.breakpoints.up('md'),
     { defaultMatches: true }
   );
   return (
-    <div id='home'>
+    <div id='home' ref={ref}>
       <Box sx={{ width: 1, height: 1 }}>
         <Container
           component={motion.div}

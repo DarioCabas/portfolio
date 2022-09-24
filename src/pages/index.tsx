@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { FC, ReactNode, useRef } from 'react'
 import { ComponentParticles } from 'src/components/common/particles'
 import About from 'src/components/portfolio/about'
 import Contact from 'src/components/portfolio/contact'

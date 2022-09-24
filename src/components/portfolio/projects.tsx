@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import {
   Box,
   Button,
@@ -12,6 +12,7 @@ import {
   Typography
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles';
+import { motion, useInView } from 'framer-motion';
 
 const projects = [
   {
@@ -85,15 +86,18 @@ const projects = [
 
 const Projects: FC = () => {
   const theme = useTheme();
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  console.log('projects', isInView);
   return (
-    <div id='projects'>
+    <div id='projects' >
       <Box
         maxWidth={{ sm: 720, md: 1236 }}
         width={1}
         margin='0 auto'
         paddingX={2}
         paddingY={{ xs: 4, sm: 6, md: 8 }}
+        ref={ref}
       >
         <Box marginBottom={4}>
           <Typography
@@ -101,7 +105,6 @@ const Projects: FC = () => {
             align='center'
             fontWeight={700}
             marginTop={theme.spacing(1)}
-            data-aos='fade-up'
             gutterBottom
           >
             Projects
@@ -110,7 +113,6 @@ const Projects: FC = () => {
             variant='h6'
             color={theme.palette.text.secondary}
             align='center'
-            data-aos='fade-up'
             marginTop={4}
             marginBottom={6}
           >
@@ -124,7 +126,6 @@ const Projects: FC = () => {
               item
               xs={12}
               md={4}
-              data-aos='fade-up'
             >
               <Box
                 display='block'

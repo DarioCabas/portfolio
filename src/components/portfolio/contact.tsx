@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import {
   Avatar,
@@ -11,6 +11,7 @@ import {
 import EmailIcon from '@mui/icons-material/Email';
 import LocationIcon from '@mui/icons-material/LocationOn';
 import { useTheme } from '@mui/material/styles';
+import { motion, useInView } from 'framer-motion';
 
 const contact = [
   {
@@ -23,6 +24,9 @@ const contact = [
 
 const Contact: FC = () => {
   const theme = useTheme();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  console.log('contact', isInView);
 
   const Map = React.useMemo(() => dynamic(
     () => import('src/components/common/map'),
@@ -33,10 +37,11 @@ const Contact: FC = () => {
   ), []);
 
   return (
-    <div id='contact'>
+    <div id='contact' >
       <Box
         position='relative'
         marginBottom={0}
+        ref={ref}
       >
         <Box
           maxWidth={{ sm: 720, md: 1236 }}
@@ -52,7 +57,6 @@ const Contact: FC = () => {
               align='center'
               fontWeight={700}
               marginTop={theme.spacing(1)}
-              data-aos='fade-up'
               gutterBottom
             >
               Get in touch
@@ -61,7 +65,6 @@ const Contact: FC = () => {
               variant='h6'
               align='center'
               color={theme.palette.text.secondary}
-              data-aos='fade-up'
               marginTop={4}
               marginBottom={6}
             >
