@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useMemo } from 'react';
 import {
   Box,
   Divider,
@@ -48,7 +48,7 @@ const About: FC = () => {
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
         <Box ref={ref}>
-          <Box 
+          <Box
             marginBottom={4}
             component={motion.div}
             initial={{
@@ -82,49 +82,52 @@ const About: FC = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            {about.map((item, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <ListItem
-                  component={motion.div}
-                  disableGutters
-                  sx={{
-                    alignItems: 'flex-start',
-                    padding: 0,
-                  }}
-                  initial={{
-                    scale: isInView ? 0.5 : 0
-                  }}
-                  animate={{
-                    scale: isInView ? 1 : 0,
-                  }}
-                  transition={{
-                    duration: 0.9,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  <ListItemAvatar
-                  >
-                    {item.icon}
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description}
-                    primaryTypographyProps={{
-                      variant: 'h4',
-                      gutterBottom: true,
-                      sx: { fontWeight: 700 },
-                    }}
-                    secondaryTypographyProps={{
-                      variant: 'subtitle1',
-                      gutterBottom: true,
-                    }}
-                    sx={{
-                      margin: 0,
-                    }}
-                  />
-                </ListItem>
-              </Grid>
-            ))}
+            {
+              useMemo(() =>
+                about.map((item, i) => (
+                  <Grid item xs={12} sm={6} md={4} key={i}>
+                    <ListItem
+                      component={motion.div}
+                      disableGutters
+                      sx={{
+                        alignItems: 'flex-start',
+                        padding: 0,
+                      }}
+                      initial={{
+                        scale: isInView ? 0.5 : 0
+                      }}
+                      animate={{
+                        scale: isInView ? 1 : 0,
+                      }}
+                      transition={{
+                        duration: 0.9,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      <ListItemAvatar
+                      >
+                        {item.icon}
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={item.title}
+                        secondary={item.description}
+                        primaryTypographyProps={{
+                          variant: 'h4',
+                          gutterBottom: true,
+                          sx: { fontWeight: 700 },
+                        }}
+                        secondaryTypographyProps={{
+                          variant: 'subtitle1',
+                          gutterBottom: true,
+                        }}
+                        sx={{
+                          margin: 0,
+                        }}
+                      />
+                    </ListItem>
+                  </Grid>
+                )), [isInView])
+            }
           </Grid>
         </Box>
       </Box>

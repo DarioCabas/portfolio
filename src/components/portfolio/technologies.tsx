@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useMemo } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import Avatar from '@mui/material/Avatar';
@@ -137,55 +137,57 @@ const Technologies: FC = () => {
               type: 'spring'
             }}
           >
-            {technologies.map((item, i) => (
-              <Grid item xs={12} md={3} key={i}>
-                <Box
-                  width={1}
-                  height={1}
-                  component={Card}
-                  display='flex'
-                  flexDirection='column'
-                  alignItems='center'
-                  boxShadow={0}
-                  variant='outlined'
-                  borderRadius={2}
-                >
-                  <CardContent
-                    component={motion.div}
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            {useMemo(() => 
+              technologies.map((item, i) => (
+                <Grid item xs={12} md={3} key={i}>
+                  <Box
+                    width={1}
+                    height={1}
+                    component={Card}
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    boxShadow={0}
+                    variant='outlined'
+                    borderRadius={2}
                   >
-                    <Box marginBottom={1}>
-                      <Box
-                        component={Avatar}
-                        variant='rounded'
-                        sx={{
-                          backgroundColor: 'transparent',
-                          width: 60,
-                          height: 60,
-                          borderRadius: 2,
-                          marginBottom: 2
-                        }}
-                      >
-                        <Image alt={item.alt} src={item.icon} height={50} width={50} />
-                      </Box>
-                    </Box>
-                    <Typography
-                      align='center'
-                      color={theme.palette.text.primary}
-                      fontWeight='bold'
+                    <CardContent
+                      component={motion.div}
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                      }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
-                      {item.name}
-                    </Typography>
-                  </CardContent>
-                </Box>
-              </Grid>
-            ))}
+                      <Box marginBottom={1}>
+                        <Box
+                          component={Avatar}
+                          variant='rounded'
+                          sx={{
+                            backgroundColor: 'transparent',
+                            width: 60,
+                            height: 60,
+                            borderRadius: 2,
+                            marginBottom: 2
+                          }}
+                        >
+                          <Image alt={item.alt} src={item.icon} height={50} width={50} />
+                        </Box>
+                      </Box>
+                      <Typography
+                        align='center'
+                        color={theme.palette.text.primary}
+                        fontWeight='bold'
+                      >
+                        {item.name}
+                      </Typography>
+                    </CardContent>
+                  </Box>
+                </Grid>
+              )), [theme])
+            }
           </Grid>
         </Box>
       </Box>
