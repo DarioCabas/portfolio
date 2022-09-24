@@ -5,78 +5,114 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import HelpIcon from '@mui/icons-material/HelpOutlineOutlined';
 import ManageSearchIcon from '@mui/icons-material/ManageSearchOutlined';
+import { motion } from 'framer-motion';
 
 const HeroButtons: FC = () => {
-    const theme = useTheme();
-    const isMd = useMediaQuery(
-        theme.breakpoints.up('md'),
-        { defaultMatches: true }
-    );
+  const theme = useTheme();
+  const isMd = useMediaQuery(
+    theme.breakpoints.up('md'),
+    { defaultMatches: true }
+  );
 
-    return (
-        <React.Fragment>
-            <Box
-                display='flex'
-                flexDirection={{ xs: 'column', sm: 'row' }}
-                alignItems={{ xs: 'stretched', sm: 'flex-start' }}
-                justifyContent='center'
-                marginTop={4}
-            >
-                <Button
-                    component='a'
-                    variant='contained'
-                    color='primary'
-                    size='large'
-                    href='#about'
-                    fullWidth={isMd ? false : true}
-                    disableElevation={true}
-                    sx={{
-                        padding: '15px 30px',
-                        marginRight: '15px',
-                        fontSize: '16px',
-                        textTransform: 'uppercase',
-                        border: '2px solid ' + theme.palette.primary.main,
-                        '&:hover': {
-                            backgroundColor: 'transparent',
-                            color: theme.palette.primary.main,
-                            border: '2px solid ' + theme.palette.primary.main
-                        }
-                    }}
-                >
-                    Know more
-                </Button>
-                <Box
-                    marginTop={{ xs: 2, sm: 0 }}
-                    marginLeft={{ sm: 1 }}
-                    width={{ xs: '100%', md: 'auto' }}
-                >
-                    <Button
-                        component='a'
-                        variant='outlined'
-                        color='primary'
-                        size='large'
-                        href='#contact'
-                        fullWidth={isMd ? false : true}
-                        disableElevation={true}
-                        sx={{
-                            padding: '15px 30px',
-                            marginRight: '15px',
-                            fontSize: '16px',
-                            textTransform: 'uppercase',
-                            border: '2px solid ' + theme.palette.primary.main,
-                            '&:hover': {
-                                backgroundColor: theme.palette.primary.main,
-                                color: theme.palette.common.white,
-                                border: '2px solid ' + theme.palette.primary.main
-                            }
-                        }}
-                    >
-                        Contact me
-                    </Button>
-                </Box>
-            </Box>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Box
+        display='flex'
+        flexDirection={{ xs: 'column', sm: 'row' }}
+        alignItems={{ xs: 'stretched', sm: 'flex-start' }}
+        justifyContent='center'
+        marginTop={4}
+      >
+        <Box
+          component={motion.div}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          marginTop={{ xs: 2, sm: 0 }}
+          marginLeft={{ sm: 1 }}
+          width={{ xs: '100%', md: 'auto' }}
+        >
+          <Button
+            component='a'
+            variant='outlined'
+            color='primary'
+            size='large'
+            href='#about'
+            fullWidth={isMd ? false : true}
+            disableElevation={true}
+            sx={{
+              padding: '15px 30px',
+              marginRight: '15px',
+              fontSize: '16px',
+              textTransform: 'uppercase',
+              border: '2px solid ' + theme.palette.primary.main,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.common.white,
+                border: '2px solid ' + theme.palette.primary.main
+              }
+            }}
+          >
+           Know more
+          </Button>
+        </Box>
+        {/* <Button
+          component='a'
+          variant='contained'
+          color='primary'
+          size='large'
+          href='#about'
+          fullWidth={isMd ? false : true}
+          disableElevation={true}
+          sx={{
+            padding: '15px 30px',
+            marginRight: '15px',
+            fontSize: '16px',
+            textTransform: 'uppercase',
+            border: '2px solid ' + theme.palette.primary.main,
+            '&:hover': {
+              backgroundColor: 'transparent',
+              color: theme.palette.primary.main,
+              border: '2px solid ' + theme.palette.primary.main
+            }
+          }}
+        >
+          Know more
+        </Button> */}
+        <Box
+          component={motion.div}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          marginTop={{ xs: 2, sm: 0 }}
+          marginLeft={{ sm: 1 }}
+          width={{ xs: '100%', md: 'auto' }}
+        >
+          <Button
+            component='a'
+            variant='outlined'
+            color='primary'
+            size='large'
+            href='#contact'
+            fullWidth={isMd ? false : true}
+            disableElevation={true}
+            sx={{
+              padding: '15px 30px',
+              marginRight: '15px',
+              fontSize: '16px',
+              textTransform: 'uppercase',
+              border: '2px solid ' + theme.palette.primary.main,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.common.white,
+                border: '2px solid ' + theme.palette.primary.main
+              }
+            }}
+          >
+            Contact me
+          </Button>
+        </Box>
+      </Box>
+    </React.Fragment>
+  );
 };
 
 export default HeroButtons;

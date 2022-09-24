@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useMemo } from 'react';
 import {
   Box,
   Divider,
@@ -14,27 +14,30 @@ import { useTheme } from '@mui/material/styles';
 import PaletteIcon from '@mui/icons-material/Palette';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CodeIcon from '@mui/icons-material/Code';
+import { motion, useInView } from 'framer-motion';
 
 const about = [
   {
     icon: <PaletteIcon sx={{ fontSize: 40 }} />,
     title: 'Design',
-    description: 'I create beautiful and modern designs optimized for multiple color(light and dark theme)'
+    description: 'I create beautiful and modern designs optimized for multiple colors (light and dark themes)'
   },
   {
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
-    title: 'Design',
-    description: 'I develop responsive, scalable  and fast applications using the best standards and programming practices'
+    title: 'Development',
+    description: 'I develop responsive, scalable, and fast applications using the best standards and programming practices'
   },
   {
     icon: <SettingsIcon sx={{ fontSize: 40 }} />,
-    title: 'Design',
-    description: 'Once the application is ready, I help you launch it and teach you how edit, update and maintain it '
+    title: 'Launch & Maintenance',
+    description: 'Once the application is ready, I help you launch it and teach you how to edit, update and maintain it.'
   }
 ]
 
 const About: FC = () => {
   const theme = useTheme();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
   return (
     <div id='about'>
       <Box
@@ -44,14 +47,26 @@ const About: FC = () => {
         paddingX={2}
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
-        <Box>
-          <Box marginBottom={4}>
+        <Box ref={ref}>
+          <Box
+            marginBottom={4}
+            component={motion.div}
+            initial={{
+              scale: isInView ? 0 : 0
+            }}
+            animate={{
+              scale: isInView ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.9,
+              type: 'spring'
+            }}
+          >
             <Typography
               variant='h3'
               align='center'
               fontWeight={700}
               marginTop={theme.spacing(1)}
-              data-aos='fade-up'
               gutterBottom
             >
               About me
@@ -60,7 +75,6 @@ const About: FC = () => {
               variant='h6'
               color={theme.palette.text.secondary}
               align='center'
-              data-aos='fade-up'
               marginTop={4}
               marginBottom={6}
             >
@@ -68,39 +82,52 @@ const About: FC = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            {about.map((item, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <ListItem
-                  component='div'
-                  disableGutters
-                  sx={{
-                    alignItems: 'flex-start',
-                    padding: 0,
-                  }}
-                >
-                  <ListItemAvatar
-                  >
-                    {item.icon}
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description}
-                    primaryTypographyProps={{
-                      variant: 'h4',
-                      gutterBottom: true,
-                      sx: { fontWeight: 700 },
-                    }}
-                    secondaryTypographyProps={{
-                      variant: 'subtitle1',
-                      gutterBottom: true,
-                    }}
-                    sx={{
-                      margin: 0,
-                    }}
-                  />
-                </ListItem>
-              </Grid>
-            ))}
+            {
+              useMemo(() =>
+                about.map((item, i) => (
+                  <Grid item xs={12} sm={6} md={4} key={i}>
+                    <ListItem
+                      component={motion.div}
+                      disableGutters
+                      sx={{
+                        alignItems: 'flex-start',
+                        padding: 0,
+                      }}
+                      initial={{
+                        scale: isInView ? 0.5 : 0
+                      }}
+                      animate={{
+                        scale: isInView ? 1 : 0,
+                      }}
+                      transition={{
+                        duration: 0.9,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      <ListItemAvatar
+                      >
+                        {item.icon}
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={item.title}
+                        secondary={item.description}
+                        primaryTypographyProps={{
+                          variant: 'h4',
+                          gutterBottom: true,
+                          sx: { fontWeight: 700 },
+                        }}
+                        secondaryTypographyProps={{
+                          variant: 'subtitle1',
+                          gutterBottom: true,
+                        }}
+                        sx={{
+                          margin: 0,
+                        }}
+                      />
+                    </ListItem>
+                  </Grid>
+                )), [isInView])
+            }
           </Grid>
         </Box>
       </Box>
