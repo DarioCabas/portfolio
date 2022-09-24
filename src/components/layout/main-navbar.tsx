@@ -33,181 +33,188 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faAtom);
 import ColorModeContext from 'src/components/color-mode-context';
 import CustomButton from 'src/components/common/custom-button';
+import { motion } from 'framer-motion';
 
 interface MainNavbarProps {
-    onSidebarOpen?: () => void;
+  onSidebarOpen?: () => void;
 }
 
 const MainNavbar: FC<MainNavbarProps> = (props) => {
-    const { onSidebarOpen } = props;
-    const theme = useTheme();
-    const colorMode = React.useContext(ColorModeContext);
-    const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 38,
-    });
+  const { onSidebarOpen } = props;
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 38,
+  });
 
-    return (
-        <React.Fragment>
-            <AppBar
-                position='sticky'
-                color='transparent'
-                elevation={theme.palette.mode === 'dark' ? (0) : (trigger ? 1 : 0)}
-                sx={{
-                    top: 0,
-                    border: 0,
-                    backgroundColor: trigger ? theme.palette.background.default : 'transparent',
-                }}
+  return (
+    <React.Fragment>
+      <AppBar
+        position='sticky'
+        color='transparent'
+        elevation={theme.palette.mode === 'dark' ? (0) : (trigger ? 1 : 0)}
+        sx={{
+          top: 0,
+          border: 0,
+          backgroundColor: trigger ? theme.palette.background.default : 'transparent',
+        }}
+      >
+        <Toolbar sx={{ minHeight: 70 }}>
+          <Box
+            alignItems='center'
+            sx={{ display: { md: 'block', lg: 'none' } }}
+          >
+            <Button
+              onClick={onSidebarOpen}
+              aria-label='Menu'
+              variant='outlined'
+              sx={{
+                borderRadius: 2,
+                minWidth: 'auto',
+                padding: 1,
+                color: theme.palette.primary.main,
+                borderColor: alpha(theme.palette.primary.main, 0.2),
+              }}
             >
-                <Toolbar sx={{ minHeight: 70 }}>
-                    <Box
-                        alignItems='center'
-                        sx={{ display: { md: 'block', lg: 'none' } }}
-                    >
-                        <Button
-                            onClick={onSidebarOpen}
-                            aria-label='Menu'
-                            variant='outlined'
-                            sx={{
-                                borderRadius: 2,
-                                minWidth: 'auto',
-                                padding: 1,
-                                color: theme.palette.primary.main,
-                                borderColor: alpha(theme.palette.primary.main, 0.2),
-                            }}
-                        >
-                            <MenuIcon fontSize='medium' />
-                        </Button>
-                    </Box>
-                    <Link href='/' style={{ textDecoration: 'none' }}>
-                        <IconButton size='large' disabled>
-                            <Avatar
-                            >
-                                <FontAwesomeIcon
-                                    icon={faAtom}
-                                    style={{
-                                        color: theme.palette.common.white,
-                                        height: 20,
-                                        width: 20
-                                    }}
-                                />
-                            </Avatar>
-                            <Typography
-                                variant='h3'
-                                component='div'
-                                sx={{
-                                    flexGrow: 1,
-                                    color: theme.palette.text.primary,
-                                    fontFamily: '"Love Ya Like A Sister", cursive',
-                                    fontWeight: 'bold',
-                                    textDecoration: 'none',
-                                    display: { md: 'inline', xs: 'none' }
-                                }}
-                            >
-                                AyahumaDev
-                            </Typography>
-                        </IconButton>
-                    </Link>
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box
-                        sx={{
-                            alignItems: 'center',
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
-                    >
-                        <CustomButton
-                            href='#home'
-                            icon={<HomeIcon />}
-                            text='Home'
-                        />
-                        <CustomButton
-                            href='#about'
-                            icon={<AccessibilityNewIcon />}
-                            text='About'
-                        />
-                        <CustomButton
-                            href='#projects'
-                            icon={<GridViewIcon />}
-                            text='Projects'
-                        />
-                        <CustomButton
-                            href='#technologies'
-                            icon={<DevicesIcon />}
-                            text='Technologies'
-                        />
-                        <CustomButton
-                            href='#contact'
-                            icon={<EmailIcon />}
-                            text='Contact'
-                        />
-                    </Box>
-                    <Divider
-                        orientation='vertical'
-                        sx={{
-                            height: 32,
-                            mx: 2,
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
-                    />
-                    <Box sx={{ display: 'flex' }}>
-                        <IconButton
-                            onClick={colorMode.toggleColorMode}
-                            aria-label='Theme Mode'
-                            color={theme.palette.mode === 'dark' ? 'warning' : 'inherit'}
-                        >
-                            {theme.palette.mode === 'dark'
-                                ? (
-                                    <LightModeIcon fontSize='medium' />
-                                )
-                                : (
-                                    <DarkModeIcon fontSize='medium' />
-                                )
-                            }
-                        </IconButton>
-                    </Box>
-                    <Divider
-                        orientation='vertical'
-                        sx={{
-                            height: 32,
-                            mx: 2,
-                            display: { lg: 'flex', md: 'none', xs: 'none' }
-                        }}
-                    />
-                    <Box sx={{ display: { lg: 'flex', md: 'none', xs: 'none' } }}>
-                        <IconButton
-                            aria-label='YouTube'
-                            color='primary'
-                            href='https://www.youtube.com/channel/UCh_p3UkcmtjVZqxrsbP_lvQ/featured'
-                            target='_blank'
-                        >
-                            <YouTubeIcon fontSize='large' />
-                        </IconButton>
-                        <IconButton
-                            aria-label='LinkedIn'
-                            color='primary'
-                            href='https://www.linkedin.com/in/dario-cabascango-9724431a3/'
-                            target='_blank'
-                        >
-                            <LinkedInIcon fontSize='large' />
-                        </IconButton>
-                        <IconButton
-                            aria-label='Instagram'
-                            color='primary'
-                            href='#'
-                            target='_blank'
-                        >
-                            <InstagramIcon fontSize='large' />
-                        </IconButton>
-                    </Box>
-                    {theme.palette.mode === 'dark' && <Divider />}
-                </Toolbar>
-            </AppBar>
-        </React.Fragment>
-    );
+              <MenuIcon fontSize='medium' />
+            </Button>
+          </Box>
+          <Link href='/' style={{ textDecoration: 'none' }}>
+            <IconButton size='large' disabled>
+              <Avatar
+                component={motion.div}
+                animate={{ y: 5 }}
+                transition={{
+                  duration: 0.3,
+                  yoyo: Infinity
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faAtom}
+                  style={{
+                    color: theme.palette.common.white,
+                    height: 20,
+                    width: 20
+                  }}
+                />
+              </Avatar>
+              <Typography
+                variant='h3'
+                component='div'
+                sx={{
+                  flexGrow: 1,
+                  color: theme.palette.text.primary,
+                  fontFamily: '"Love Ya Like A Sister", cursive',
+                  fontWeight: 'bold',
+                  textDecoration: 'none',
+                  display: { md: 'inline', xs: 'none' }
+                }}
+              >
+                AyahumaDev
+              </Typography>
+            </IconButton>
+          </Link>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box
+            sx={{
+              alignItems: 'center',
+              display: { lg: 'flex', md: 'none', xs: 'none' }
+            }}
+          >
+            <CustomButton
+              href='#home'
+              icon={<HomeIcon />}
+              text='Home'
+            />
+            <CustomButton
+              href='#about'
+              icon={<AccessibilityNewIcon />}
+              text='About'
+            />
+            <CustomButton
+              href='#projects'
+              icon={<GridViewIcon />}
+              text='Projects'
+            />
+            <CustomButton
+              href='#technologies'
+              icon={<DevicesIcon />}
+              text='Technologies'
+            />
+            <CustomButton
+              href='#contact'
+              icon={<EmailIcon />}
+              text='Contact'
+            />
+          </Box>
+          <Divider
+            orientation='vertical'
+            sx={{
+              height: 32,
+              mx: 2,
+              display: { lg: 'flex', md: 'none', xs: 'none' }
+            }}
+          />
+          <Box sx={{ display: 'flex' }}>
+            <IconButton
+              onClick={colorMode.toggleColorMode}
+              aria-label='Theme Mode'
+              color={theme.palette.mode === 'dark' ? 'warning' : 'inherit'}
+            >
+              {theme.palette.mode === 'dark'
+                ? (
+                  <LightModeIcon fontSize='medium' />
+                )
+                : (
+                  <DarkModeIcon fontSize='medium' />
+                )
+              }
+            </IconButton>
+          </Box>
+          <Divider
+            orientation='vertical'
+            sx={{
+              height: 32,
+              mx: 2,
+              display: { lg: 'flex', md: 'none', xs: 'none' }
+            }}
+          />
+          <Box sx={{ display: { lg: 'flex', md: 'none', xs: 'none' } }}>
+            <IconButton
+              aria-label='YouTube'
+              color='primary'
+              href='https://www.youtube.com/channel/UCh_p3UkcmtjVZqxrsbP_lvQ/featured'
+              target='_blank'
+            >
+              <YouTubeIcon fontSize='large' />
+            </IconButton>
+            <IconButton
+              aria-label='LinkedIn'
+              color='primary'
+              href='https://www.linkedin.com/in/dario-cabascango-9724431a3/'
+              target='_blank'
+            >
+              <LinkedInIcon fontSize='large' />
+            </IconButton>
+            <IconButton
+              aria-label='Instagram'
+              color='primary'
+              href='#'
+              target='_blank'
+            >
+              <InstagramIcon fontSize='large' />
+            </IconButton>
+          </Box>
+          {theme.palette.mode === 'dark' && <Divider />}
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
 };
 
 MainNavbar.propTypes = {
-    onSidebarOpen: PropTypes.func,
+  onSidebarOpen: PropTypes.func,
 };
 
 export default MainNavbar;

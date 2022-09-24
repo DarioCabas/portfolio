@@ -1,5 +1,5 @@
 const typography = {
-  fontFamily: '"Open Sans", sans-serif',
+  fontFamily: ['Poppins', 'sans-serif'].join(','),
   fontSize: 13,
   fontWeightLight: 300,
   fontWeightRegular: 400,

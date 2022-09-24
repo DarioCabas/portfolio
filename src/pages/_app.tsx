@@ -10,8 +10,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import ColorModeContext from 'src/components/color-mode-context';
 import createEmotionCache from 'src/utils/create-emotion-cache';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import type { FC } from 'react';
 import Head from 'next/head';
 
@@ -44,13 +42,8 @@ const MyApp: FC<EnhancedAppProps> = (props) => {
       // @ts-ignore
       jssStyles.parentElement.removeChild(jssStyles);
     }
-
-    AOS.init({
-      once: true,
-      offset: 0,
-      easing: 'ease-in-out',
-    });
   }, []);
+  
   return (
     <CacheProvider value={emotionCache}>
       <Head>
