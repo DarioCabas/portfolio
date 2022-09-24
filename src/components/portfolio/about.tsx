@@ -1,4 +1,4 @@
-import React, { FC, useRef} from 'react';
+import React, { FC, useRef } from 'react';
 import {
   Box,
   Divider,
@@ -37,7 +37,7 @@ const about = [
 const About: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   return (
     <div id='about'>
       <Box
@@ -48,22 +48,45 @@ const About: FC = () => {
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
         <Box ref={ref}>
-          <Box marginBottom={4}>
+          <Box marginBottom={4}
+          >
             <Typography
+              component={motion.div}
               variant='h3'
               align='center'
               fontWeight={700}
               marginTop={theme.spacing(1)}
               gutterBottom
+              initial={{
+                scale: isInView ? 0 : 0
+              }}
+              animate={{
+                scale: isInView ? 1 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                type: 'spring'
+              }}
             >
               About me
             </Typography>
             <Typography
+              component={motion.div}
               variant='h6'
               color={theme.palette.text.secondary}
               align='center'
               marginTop={4}
               marginBottom={6}
+              initial={{
+                scale: isInView ? 0 : 0
+              }}
+              animate={{
+                scale: isInView ? 1 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                type: 'spring'
+              }}
             >
               I help software developers and people learn new skills, gain more experience and create excellent applications. In the same way I learn of them
             </Typography>
@@ -72,11 +95,21 @@ const About: FC = () => {
             {about.map((item, i) => (
               <Grid item xs={12} sm={6} md={4} key={i}>
                 <ListItem
-                  component='div'
+                  component={motion.div}
                   disableGutters
                   sx={{
                     alignItems: 'flex-start',
                     padding: 0,
+                  }}
+                  initial={{
+                    scale: isInView ? 0.5 : 0
+                  }}
+                  animate={{
+                    scale: isInView ? 1 : 0,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0, 0.71, 0.2, 1.01],
                   }}
                 >
                   <ListItemAvatar
