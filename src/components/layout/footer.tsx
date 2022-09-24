@@ -47,7 +47,7 @@ const Footer = () => {
                     padding: 0
                   }}
                 >
-                  <ListItemButton component='a' href='#'>
+                  <ListItemButton >
                     <ListItemText
                       primary={
                         <Typography
@@ -59,7 +59,7 @@ const Footer = () => {
                       }
                     />
                   </ListItemButton>
-                  <ListItemButton component='a' href='#'>
+                  <ListItemButton >
                     <ListItemText
                       primary={
                         <Typography
