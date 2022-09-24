@@ -78,7 +78,6 @@ const Technologies:FC = () => {
     const theme = useTheme();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-    console.log('tech', isInView);
     return (
         <div id='technologies' >
             <Box

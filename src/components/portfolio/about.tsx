@@ -38,7 +38,6 @@ const About: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  console.log('about', isInView);
   return (
     <div id='about'>
       <Box

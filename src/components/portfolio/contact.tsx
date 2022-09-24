@@ -26,7 +26,6 @@ const Contact: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  console.log('contact', isInView);
 
   const Map = React.useMemo(() => dynamic(
     () => import('src/components/common/map'),

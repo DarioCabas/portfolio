@@ -88,7 +88,6 @@ const Projects: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  console.log('projects', isInView);
   return (
     <div id='projects' >
       <Box

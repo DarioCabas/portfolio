@@ -16,7 +16,6 @@ const HomeHero: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  console.log('home', isInView);
   const isMd = useMediaQuery(
     theme.breakpoints.up('md'),
     { defaultMatches: true }
