@@ -23,7 +23,7 @@ export const ComponentParticles = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
           events: {
             onHover: {
@@ -69,9 +69,9 @@ export const ComponentParticles = () => {
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 500,
             },
-            value: 80,
+            value: 50,
           },
           opacity: {
             value: 0.5,

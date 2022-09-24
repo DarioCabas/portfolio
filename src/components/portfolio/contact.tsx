@@ -25,7 +25,7 @@ const contact = [
 const Contact: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
 
   const Map = React.useMemo(() => dynamic(
     () => import('src/components/common/map'),
@@ -50,7 +50,20 @@ const Contact: FC = () => {
           paddingY={{ xs: 4, sm: 6, md: 8 }}
           paddingBottom={0}
         >
-          <Box marginBottom={0}>
+          <Box
+            marginBottom={0}
+            component={motion.div}
+            initial={{
+              scale: isInView ? 0 : 0
+            }}
+            animate={{
+              scale: isInView ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.9,
+              type: 'spring'
+            }}
+          >
             <Typography
               variant='h3'
               align='center'
@@ -78,70 +91,105 @@ const Contact: FC = () => {
                 justifyContent='center'
                 marginTop={0}
                 marginBottom={3}
+                component={motion.div}
+                initial={{
+                  scale: isInView ? 0 : 0
+                }}
+                animate={{
+                  scale: isInView ? 1 : 0,
+                }}
+                transition={{
+                  duration: 0.9,
+                  type: 'spring'
+                }}
               >
                 <Box
-                  component={ListItem}
-                  disableGutters
-                  width='auto'
-                  padding={0}
-                  marginRight={10}
+                  component={motion.div}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <Box
-                    component={ListItemAvatar}
-                    minWidth='auto !important'
-                    marginRight={2}
+                    component={ListItem}
+                    disableGutters
+                    width='auto'
+                    padding={0}
+                    marginRight={10}
                   >
                     <Box
-                      component={Avatar}
-                      sx={{
-                        backgroundColor: theme.palette.primary.main,
-                        width: 40,
-                        height: 40
-                      }}
+                      component={ListItemAvatar}
+                      minWidth='auto !important'
+                      marginRight={2}
                     >
-                      <EmailIcon fontSize='small' />
+                      <Box
+                        component={Avatar}
+                        sx={{
+                          backgroundColor: theme.palette.primary.main,
+                          width: 40,
+                          height: 40
+                        }}
+                      >
+                        <EmailIcon fontSize='small' />
+                      </Box>
                     </Box>
+                    <ListItemText
+                      primary='Email'
+                      secondary={item.email}
+                    />
                   </Box>
-                  <ListItemText
-                    primary='Email'
-                    secondary={item.email}
-                  />
                 </Box>
                 <Box
-                  component={ListItem}
-                  disableGutters
-                  width='auto'
-                  padding={0}
+                  component={motion.div}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <Box
-                    component={ListItemAvatar}
-                    minWidth='auto !important'
-                    marginRight={2}
+                    component={ListItem}
+                    disableGutters
+                    width='auto'
+                    padding={0}
                   >
                     <Box
-                      component={Avatar}
-                      sx={{
-                        backgroundColor: theme.palette.primary.main,
-                        width: 40,
-                        height: 40,
-                      }}
+                      component={ListItemAvatar}
+                      minWidth='auto !important'
+                      marginRight={2}
                     >
-                      <LocationIcon fontSize='small' />
+                      <Box
+                        component={Avatar}
+                        sx={{
+                          backgroundColor: theme.palette.primary.main,
+                          width: 40,
+                          height: 40,
+                        }}
+                      >
+                        <LocationIcon fontSize='small' />
+                      </Box>
                     </Box>
+                    <ListItemText
+                      primary='Location'
+                      secondary={item.address}
+                    />
                   </Box>
-                  <ListItemText
-                    primary='Location'
-                    secondary={item.address}
-                  />
                 </Box>
               </Box>
-              <Box>
+              <Box
+                component={motion.div}
+                initial={{
+                  scale: isInView ? 0 : 0
+                }}
+                animate={{
+                  scale: isInView ? 1 : 0,
+                }}
+                transition={{
+                  duration: 1.5,
+                  type: 'spring'
+                }}
+              >
                 <Map
                   coordinates={[item.latitude, item.longitude]}
                   zoom={13}
                 />
               </Box>
-              
+
             </Box>
           ))}
         </Box>

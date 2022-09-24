@@ -87,7 +87,7 @@ const projects = [
 const Projects: FC = () => {
   const theme = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   return (
     <div id='projects' >
       <Box
@@ -98,7 +98,21 @@ const Projects: FC = () => {
         paddingY={{ xs: 4, sm: 6, md: 8 }}
         ref={ref}
       >
-        <Box marginBottom={4}>
+        <Box
+          marginBottom={4}
+          component={motion.div}
+          initial={{
+            scale: isInView ? 0 : 0
+          }}
+          animate={{
+            scale: isInView ? 1 : 0
+          }}
+          transition={{
+            duration: 0.5,
+            type: 'spring'
+          }}
+
+        >
           <Typography
             variant='h3'
             align='center'

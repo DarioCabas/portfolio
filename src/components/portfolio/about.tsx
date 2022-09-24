@@ -48,45 +48,35 @@ const About: FC = () => {
         paddingY={{ xs: 4, sm: 6, md: 8 }}
       >
         <Box ref={ref}>
-          <Box marginBottom={4}
+          <Box 
+            marginBottom={4}
+            component={motion.div}
+            initial={{
+              scale: isInView ? 0 : 0
+            }}
+            animate={{
+              scale: isInView ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.9,
+              type: 'spring'
+            }}
           >
             <Typography
-              component={motion.div}
               variant='h3'
               align='center'
               fontWeight={700}
               marginTop={theme.spacing(1)}
               gutterBottom
-              initial={{
-                scale: isInView ? 0 : 0
-              }}
-              animate={{
-                scale: isInView ? 1 : 0,
-              }}
-              transition={{
-                duration: 0.5,
-                type: 'spring'
-              }}
             >
               About me
             </Typography>
             <Typography
-              component={motion.div}
               variant='h6'
               color={theme.palette.text.secondary}
               align='center'
               marginTop={4}
               marginBottom={6}
-              initial={{
-                scale: isInView ? 0 : 0
-              }}
-              animate={{
-                scale: isInView ? 1 : 0,
-              }}
-              transition={{
-                duration: 0.5,
-                type: 'spring'
-              }}
             >
               I help software developers and people learn new skills, gain more experience and create excellent applications. In the same way I learn of them
             </Typography>
@@ -108,7 +98,7 @@ const About: FC = () => {
                     scale: isInView ? 1 : 0,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.9,
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
                 >
