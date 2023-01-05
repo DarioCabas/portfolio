@@ -48,7 +48,7 @@ const MyApp: FC<EnhancedAppProps> = (props) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>
-          Portfolio DC
+          Ayauma
         </title>
         <meta
           name="viewport"

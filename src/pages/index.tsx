@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>
-          Portfolio
+          Dario Cabascango
         </title>
       </Head>
       <main>

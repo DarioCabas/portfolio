@@ -74,7 +74,7 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
                   }}
                   flexGrow={1}
                 >
-                  AyahumaDev
+                  AyaumaDev
                 </Typography>
               </IconButton>
             </Link>

@@ -83,12 +83,6 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
           <Link href='/' style={{ textDecoration: 'none' }}>
             <IconButton size='large' disabled>
               <Avatar
-                component={motion.div}
-                animate={{ y: 5 }}
-                transition={{
-                  duration: 0.3,
-                  yoyo: Infinity
-                }}
               >
                 <FontAwesomeIcon
                   icon={faAtom}
@@ -111,7 +105,7 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
                   display: { md: 'inline', xs: 'none' }
                 }}
               >
-                AyahumaDev
+                Ayaumadev
               </Typography>
             </IconButton>
           </Link>

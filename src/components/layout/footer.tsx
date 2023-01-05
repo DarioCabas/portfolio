@@ -54,7 +54,7 @@ const Footer = () => {
                           variant='body2'
                           color={theme.palette.text.secondary}
                         >
-                          React Developer
+                          Software Developer
                         </Typography>
                       }
                     />
@@ -83,7 +83,7 @@ const Footer = () => {
                         variant='body2'
                         color={theme.palette.text.secondary}
                       >
-                        Copyright &copy; {new Date().getFullYear()} Dario Cabascango(AyahumaDev).
+                        Copyright &copy; {new Date().getFullYear()} Dario Cabascango(AyaumaDev).
                       </Typography>
                     }
                   />
