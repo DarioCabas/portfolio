@@ -17,7 +17,6 @@ const Home: NextPage = () => {
         </title>
       </Head>
       <main>
-        <ComponentParticles />
         <HomeHero />
         <About />
         <Projects />

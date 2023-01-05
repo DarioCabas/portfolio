@@ -55,10 +55,10 @@ const Contact: FC = () => {
             marginBottom={0}
             component={motion.div}
             initial={{
-              scale: isInView ? 0 : 0
+              scale: 0
             }}
             animate={{
-              scale: isInView ? 1 : 0,
+              scale: 1,
             }}
             transition={{
               duration: 0.9,
@@ -94,10 +94,10 @@ const Contact: FC = () => {
                 marginBottom={3}
                 component={motion.div}
                 initial={{
-                  scale: isInView ? 0 : 0
+                  scale: 0
                 }}
                 animate={{
-                  scale: isInView ? 1 : 0,
+                  scale: 1,
                 }}
                 transition={{
                   duration: 0.9,
@@ -181,10 +181,10 @@ const Contact: FC = () => {
               <Box
                 component={motion.div}
                 initial={{
-                  scale: isInView ? 0 : 0
+                  scale: 0
                 }}
                 animate={{
-                  scale: isInView ? 1 : 0,
+                  scale: 1,
                 }}
                 transition={{
                   duration: 1.5,

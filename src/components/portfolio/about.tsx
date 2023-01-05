@@ -52,10 +52,10 @@ const About: FC = () => {
             marginBottom={4}
             component={motion.div}
             initial={{
-              scale: isInView ? 0 : 0
+              scale: 0
             }}
             animate={{
-              scale: isInView ? 1 : 0,
+              scale: 1,
             }}
             transition={{
               duration: 0.9,
@@ -83,50 +83,50 @@ const About: FC = () => {
           </Box>
           <Grid container spacing={4}>
             {
-              useMemo(() =>
-                about.map((item, i) => (
-                  <Grid item xs={12} sm={6} md={4} key={i}>
-                    <ListItem
-                      component={motion.div}
-                      disableGutters
-                      sx={{
-                        alignItems: 'flex-start',
-                        padding: 0,
-                      }}
-                      initial={{
-                        scale: isInView ? 0.5 : 0
-                      }}
-                      animate={{
-                        scale: isInView ? 1 : 0,
-                      }}
-                      transition={{
-                        duration: 0.9,
-                        ease: [0, 0.71, 0.2, 1.01],
-                      }}
+
+              about.map((item, i) => (
+                <Grid item xs={12} sm={6} md={4} key={i}>
+                  <ListItem
+                    component={motion.div}
+                    disableGutters
+                    sx={{
+                      alignItems: 'flex-start',
+                      padding: 0,
+                    }}
+                    initial={{
+                      scale: 0.5
+                    }}
+                    animate={{
+                      scale: 1,
+                    }}
+                    transition={{
+                      duration: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
+                  >
+                    <ListItemAvatar
                     >
-                      <ListItemAvatar
-                      >
-                        {item.icon}
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={item.title}
-                        secondary={item.description}
-                        primaryTypographyProps={{
-                          variant: 'h4',
-                          gutterBottom: true,
-                          sx: { fontWeight: 700 },
-                        }}
-                        secondaryTypographyProps={{
-                          variant: 'subtitle1',
-                          gutterBottom: true,
-                        }}
-                        sx={{
-                          margin: 0,
-                        }}
-                      />
-                    </ListItem>
-                  </Grid>
-                )), [isInView])
+                      {item.icon}
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={item.title}
+                      secondary={item.description}
+                      primaryTypographyProps={{
+                        variant: 'h4',
+                        gutterBottom: true,
+                        sx: { fontWeight: 700 },
+                      }}
+                      secondaryTypographyProps={{
+                        variant: 'subtitle1',
+                        gutterBottom: true,
+                      }}
+                      sx={{
+                        margin: 0,
+                      }}
+                    />
+                  </ListItem>
+                </Grid>
+              ))
             }
           </Grid>
         </Box>

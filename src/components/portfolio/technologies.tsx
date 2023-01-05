@@ -93,10 +93,10 @@ const Technologies: FC = () => {
             marginBottom={4}
             component={motion.div}
             initial={{
-              scale: isInView ? 0 : 0
+              scale: 0
             }}
             animate={{
-              scale: isInView ? 1 : 0
+              scale: 1
             }}
             transition={{
               duration: 0.5,
@@ -123,21 +123,21 @@ const Technologies: FC = () => {
             </Typography>
           </Box>
           <Grid
-            container 
+            container
             spacing={2}
             component={motion.div}
             initial={{
-              scale: isInView ? 0 : 0
+              scale: 0
             }}
             animate={{
-              scale: isInView ? 1 : 0
+              scale: 1
             }}
             transition={{
               duration: 0.9,
               type: 'spring'
             }}
           >
-            {useMemo(() => 
+            {
               technologies.map((item, i) => (
                 <Grid item xs={12} md={3} key={i}>
                   <Box
@@ -186,7 +186,7 @@ const Technologies: FC = () => {
                     </CardContent>
                   </Box>
                 </Grid>
-              )), [theme])
+              ))
             }
           </Grid>
         </Box>
