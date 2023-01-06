@@ -83,16 +83,8 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
           <Link href='/' style={{ textDecoration: 'none' }}>
             <IconButton size='large' disabled>
               <Avatar
-              >
-                <FontAwesomeIcon
-                  icon={faAtom}
-                  style={{
-                    color: theme.palette.common.white,
-                    height: 20,
-                    width: 20
-                  }}
-                />
-              </Avatar>
+                src='/static/front/apple-icon.png'
+              />
               <Typography
                 variant='h3'
                 component='div'

@@ -17,7 +17,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import GridViewIcon from '@mui/icons-material/GridView';
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAtom} from '@fortawesome/free-solid-svg-icons';
+import { faAtom } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faAtom);
 
@@ -53,16 +53,8 @@ const MainSidebar: FC<MainSidebarProps> = (props) => {
             <Link href='/' style={{ textDecoration: 'none' }}>
               <IconButton size='large' disabled>
                 <Avatar
-                >
-                  <FontAwesomeIcon
-                    icon={faAtom}
-                    style={{
-                      color: theme.palette.common.white,
-                      height: 20,
-                      width: 20
-                    }}
-                  />
-                </Avatar>
+                  src='/static/front/apple-icon.png'
+                />
                 <Typography
                   variant='h3'
                   component='div'
