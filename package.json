@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "portfoliov2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,36 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@fortawesome/fontawesome-svg-core": "^6.2.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.4",
-    "@mui/styles": "^5.10.3",
-    "@types/react-leaflet": "^2.8.2",
-    "aos": "^3.0.0-beta.6",
-    "axios": "^0.27.2",
-    "framer-motion": "^7.3.2",
-    "leaflet": "^1.8.0",
-    "next": "12.3.0",
+    "@types/node": "20.4.10",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "animejs": "^3.2.1",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.13",
+    "mini-css-extract-plugin": "^2.7.6",
+    "next": "13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-lazy-load-image-component": "^1.5.5",
-    "react-leaflet": "^4.0.2",
-    "react-particles": "^2.2.4",
-    "tsparticles": "^2.2.4"
+    "react-transition-group": "^4.4.5",
+    "scrollreveal": "^4.0.9",
+    "smooth-scroll": "^16.1.3",
+    "styled-components": "^6.0.7",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.4",
-    "@types/leaflet": "^1.7.11",
-    "@types/node": "18.7.16",
-    "@types/react": "18.0.19",
-    "@types/react-dom": "18.0.6",
-    "@types/react-lazy-load-image-component": "^1.5.2",
-    "eslint": "8.23.0",
-    "eslint-config-next": "12.3.0",
-    "typescript": "4.8.3"
+    "@types/animejs": "^3.1.7",
+    "@types/react-transition-group": "^4.4.6",
+    "@types/scrollreveal": "^0.0.8"
   }
 }
